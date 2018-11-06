@@ -12,16 +12,14 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         factory(App\Category::class, 5)->create()->each(function ($c) {
-            for ($i = 0; $i < 3; $i++) {
-                $q =  $c->questions()->save(factory(App\Question::class)->make());
-
-                $q->answers()->save(factory(App\Answer::class)->make());
-                $a =  $q->answers()->save(factory(App\Answer::class)->make());
-                $q->answers()->save(factory(App\Answer::class)->make());
-                $q->answers()->save(factory(App\Answer::class)->make());
-
-                $q->right_answer_id = $a->id;
-                $q->save();
+            for($j = 1;$j <=6;$j++){
+                $parent =  $c->questions()->save(factory(App\Question::class)->make());
+                for($i=1;$i<=3;$i++){
+                    $child = $c->questions()->save(factory(App\Question::class)->make());
+                    $child->parent_id = $parent->id;
+                    $child->answer = rand(0,1);
+                    $child->save();
+                }
             }
         });
     }

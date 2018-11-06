@@ -1,0 +1,140 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cacaca;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9a9a9a;
+}
+
+
+#navigation::-webkit-scrollbar {
+    width: 7px;
+}
+
+#navigation::-webkit-scrollbar-track {
+    background: #263544;
+}
+
+#navigation::-webkit-scrollbar-thumb {
+    background: #314356;
+}
+
+#navigation::-webkit-scrollbar-thumb:hover {
+    background: #3e556d;
+}
+
+a{
+    text-decoration: none !important;
+}
+#navigation a{
+    color: #b7c0cd !important;
+}
+#wrapper{
+    display: flex;
+}
+
+#navigation {
+    width: 250px;
+    background: #263544;
+    height: 100vh;
+    color: #b7c0cd;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.nav-menu{
+    padding: 15px 15px 15px 25px;
+    display: flex;
+    align-items: center;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+    border-left: 3px solid transparent;
+}
+.nav-menu:hover {
+    color: #fff;
+    background-color: #212e3c;
+}
+.nav-menu.active{
+    background-color: #212e3c;
+    color: #fff;
+    border-left: 3px solid #42a5f5;
+}
+.nav-menu i {
+    font-size: 21px;
+    margin-right: 10px;
+}
+.nav-header{
+    color:#f1f7ff;
+    padding: 15px 20px;
+}
+#app{
+    width: calc(100% - 250px);
+}
+
+.data{
+    width: 100%;
+    background-color: #fff;
+}
+.data tr {
+    border: 1px solid #e6e6e6;
+}
+.data td {
+    padding: 10px;
+}
+
+.data thead tr td {
+    position: sticky;
+    top: 80px;
+    left: 0;
+    box-shadow: 0px 2px 5px -1px #d4d4d4;
+    background: #fff;
+}
+
+.navbar{
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 111;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.edit,.delete {
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+    display: inline-flex;
+    align-items: center;
+}
+.edit i, .delete i {
+    font-size: 17px;
+    margin-right: 3px;
+}
+.edit{
+    background: #428bca;
+}
+.edit:hover{
+    background: #336b9c;
+}
+.delete{
+    background: #c9302c;
+}
+.delete:hover{
+    background: #b12a27 ;
+}

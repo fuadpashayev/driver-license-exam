@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-       <p>{{$question->description}}</p>
+       <p>{{$parent_question->text}}</p>
 
-        @foreach($question->answers as $answer)
-            <p style="color:{{$answer->id==$question->right_answer_id?'red':null}}">{{$answer->description}}</p>
+        @foreach($child_questions as $child_question)
+            <p>{{$child_question->text}} - {{$child_question->answerg}}</p>
         @endforeach
     </div>
 @endsection

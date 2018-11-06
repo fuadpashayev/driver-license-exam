@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Question;
+use App\User;
 use Illuminate\Http\Request;
 
-class QuestionController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::where("parent_id",null)->get();
-        return view('question.index',['questions'=>$questions]);
+        $users = User::all();
+        return view('user.index',['users'=>$users]);
     }
 
     /**
@@ -47,10 +47,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        $parent_question = Question::findOrFail($id);
-        $child_questions = Question::where("parent_id",$id)->get();
-
-        return view('question.show',['parent_question'=>$parent_question,'child_questions'=>$child_questions]);
+        //
     }
 
     /**
