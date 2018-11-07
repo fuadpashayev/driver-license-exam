@@ -18,8 +18,8 @@ class CreateQuestionsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->text('text');
             $table->boolean('answer')->nullable();
-            $table->string("image_url");
-            $table->string("audio_url");
+            $table->string("image_url")->nullable();
+            $table->string("audio_url")->nullable();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();

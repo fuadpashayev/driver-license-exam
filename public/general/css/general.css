@@ -107,9 +107,15 @@ a{
     left: 0;
     z-index: 111;
     border-bottom: 1px solid #e3e3e3;
+    padding: 27.5px;
 }
 
-.edit,.delete {
+.navbar-right {
+    position: absolute;
+    right: 10px;
+}
+
+.edit, .delete, .view {
     color: #fff;
     padding: 3px 10px;
     border-radius: 5px;
@@ -119,22 +125,89 @@ a{
     -ms-transition: 220ms;
     -o-transition: 220ms;
     transition: 220ms;
-    display: inline-flex;
+    display: flex;
+    float: left;
     align-items: center;
+    margin: 3px 1px;
 }
-.edit i, .delete i {
+.view i,.edit i, .delete i {
     font-size: 17px;
     margin-right: 3px;
 }
-.edit{
-    background: #428bca;
+
+
+.data td img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
 }
-.edit:hover{
-    background: #336b9c;
+
+.sl-overlay {
+    background: #000 !important;
+    opacity: 0.9 !important;
 }
-.delete{
-    background: #c9302c;
+
+.sl-wrapper .sl-close, .sl-wrapper .sl-counter,.sl-wrapper .sl-navigation button{
+    color:#fff !important;
 }
-.delete:hover{
-    background: #b12a27 ;
+
+.card-menu {
+    margin: 2px;
+    width: 100%;
+    display: flex;
+    height: 50px;
+}
+
+.card-menu div:first-child {
+    background: #868686;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    border: 1px solid #868686;
+    border-right: 0;
+}
+
+.card-menu div:last-child {
+    background: #f8fafc;
+    height: 100%;
+    width: calc(100% - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    overflow: hidden;
+    border: 1px solid #dedede;
+    border-left: 0;
+}
+
+.relative{
+    position: relative;
+}
+
+.right-seat{
+    position: absolute;
+    right: 5px;
+    top:0;
+    bottom:0;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-iconed {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    margin: 0 2px;
+}
+
+.btn-iconed i{
+    font-size: 17px;
+    margin-right: 5px;
 }

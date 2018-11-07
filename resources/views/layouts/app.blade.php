@@ -3,23 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
+    @yield('title')
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('general/css/general.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     @yield('css')
 </head>
@@ -46,6 +37,7 @@
     </div>
 
     <div id="wrapper">
+        @auth
         <div id="navigation">
             <div class="nav-header">Primary</div>
             <a href="{{route('home')}}"><div class="nav-menu {{Route::currentRouteName()=='home'?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
@@ -55,23 +47,13 @@
             <a href="{{route('category.index')}}"><div class="nav-menu {{Route::currentRouteName()=='category.index'?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
             <a href="{{route('question.index')}}"><div class="nav-menu {{Route::currentRouteName()=='question.index'?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
         </div>
-        <div id="app">
+        @endauth
+        <div id="app" style="@guest width:100%; @endguest">
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div id="spot-break"></div>
                 <div class="container">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
+                        <ul class="navbar-nav navbar-right">
                             @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -112,7 +94,9 @@
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{{asset('js/lightbox.js')}}"></script>
     <script src="{{asset('general/js/general.js')}}"></script>
     <script src="https:////cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @yield('js')

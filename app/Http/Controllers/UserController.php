@@ -47,7 +47,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        if($user)
+            return view('user.show',['user'=>$user]);
+        else
+            return redirect()->route('user.index');
     }
 
     /**
@@ -81,6 +85,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        if($user)
+            echo 'ok';
+        else
+            echo'no';
     }
 }

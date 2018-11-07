@@ -1,0 +1,26 @@
+.data td:first-child{
+    width: 200px;
+}
+.data td:nth-child(2){
+    width: calc(100% - 615px);
+}
+.data td:nth-child(3){
+    width: 115px;
+    text-align: center;
+}
+.data td:last-child{
+    width: 300px;
+}
+#spot-break {
+    position: absolute;
+    bottom: -26px;
+    width: calc(100% - 30px);
+    height: 26px;
+    background: #f8fafc;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    margin: auto;
+}
