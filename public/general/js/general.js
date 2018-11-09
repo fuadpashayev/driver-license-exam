@@ -43,3 +43,14 @@ $(document).on("click","#delete",function(){
 })
 
 var lightbox = $('a.image').simpleLightbox({closeText:'×',captionSelector:'img',nav:false,showCounter: false});
+
+$(document).on("click",".audio-toggle",function(){
+    $(this).parents('tr').find('audio').trigger('play')
+    $(this).text('pause_circle_filled')
+
+})
+
+$('audio').on('ended',function(){
+    console.log("aa")
+    $(this).next('.audio-toggle').text('play_circle_filled')
+})

@@ -11,6 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('general/css/general.css') }}" rel="stylesheet">
     <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     @yield('css')
 </head>
@@ -50,6 +51,12 @@
         @endauth
         <div id="app" style="@guest width:100%; @endguest">
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                @if(previousRoute())
+                <div class="nav-back"><a href="{{previousRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">chevron_left</i> Back</button></a></div>
+                @endif
+                @if(createRoute())
+                    <div class="nav-back"><a href="{{createRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add</button></a></div>
+                @endif
                 <div id="spot-break"></div>
                 <div class="container">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -95,10 +102,12 @@
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="{{asset('js/lightbox.js')}}"></script>
-    <script src="{{asset('general/js/general.js')}}"></script>
     <script src="https:////cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="{{asset('general/js/general.js')}}"></script>
+    <script src="{{asset('js/select.js')}}"></script>
     @yield('js')
 </body>
 </html>

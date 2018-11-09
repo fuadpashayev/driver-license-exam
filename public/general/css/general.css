@@ -158,30 +158,32 @@ a{
     height: 50px;
 }
 
-.card-menu div:first-child {
-    background: #868686;
+.card-menu div{
     height: 100%;
-    width: 150px;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    border-right: 0;
+}
+
+.card-menu div:first-child {
+    background: #868686;
+    width: 150px;
     justify-content: center;
     color: #fff;
-    overflow: hidden;
     border: 1px solid #868686;
-    border-right: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .card-menu div:last-child {
     background: #f8fafc;
-    height: 100%;
     width: calc(100% - 150px);
-    display: flex;
-    align-items: center;
     justify-content: flex-start;
     padding-left: 20px;
-    overflow: hidden;
     border: 1px solid #dedede;
-    border-left: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .relative{
@@ -201,13 +203,146 @@ a{
 }
 
 .btn-iconed {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     padding: 5px 20px;
     margin: 0 2px;
 }
+.btn-iconed i {
+    font-size: 21px;
+    vertical-align: -5px;
+}
 
-.btn-iconed i{
-    font-size: 17px;
-    margin-right: 5px;
+.nav-back {
+    position: absolute;
+    left: 15px;
+}
+
+.nav-back i {
+    font-size: 22px;
+    vertical-align: -6px;
+    margin-right: -4px;
+    margin-left: -10px;
+}
+
+form.slide div input, form.slide div select {
+    width: calc(100% - 40px);
+    padding: 10px;
+    outline: none;
+    border: 1px solid #d0d0d0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.input-box.submit {
+    margin-top: 3px;
+    margin-right: -1.5px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+.input-box label {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    padding: 12px;
+    pointer-events: none;
+    color: #676767;
+    transition: 330ms;
+}
+
+.input-box input:focus ~ label, .input-box input:valid ~ label, .input-box select:valid ~ label {
+    top: -30px;
+    left: -11px;
+    color: #007bff;
+    font-size: 12px;
+}
+
+.input-addon {
+    width: 40px;
+    background: whitesmoke;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    border: 1px solid #d0d0d0;
+    border-right: 0;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.input-box.noEntry label {
+    top: -25px !important;
+    left: -5px;
+    font-size: 11px;
+    color: #007bff;
+}
+
+span.input-addon i {
+    color: #5a5a5a;
+}
+
+.center {
+    text-align: center;
+    position: relative;
+}
+
+.field-outer {
+    width: calc(35vw + 350px);
+    margin: auto;
+}
+
+.image-outer {
+    position: relative;
+}
+
+.image-outer span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #00000085;
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.image-outer img {
+    width:100%;
+    cursor: pointer;
+}
+
+.sl-wrapper .sl-image .sl-caption{
+    text-align: center;
+    padding: 15px  !important;
+}
+
+
+.audio-toggle {
+    font-size: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    color: #263544;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+}
+
+.audio-toggle:hover {
+    color:#141d25;
 }
