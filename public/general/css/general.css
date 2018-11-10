@@ -295,12 +295,16 @@ span.input-addon i {
 }
 
 .field-outer {
-    width: calc(35vw + 350px);
+    width: 100%;
     margin: auto;
 }
 
 .image-outer {
     position: relative;
+    width: calc(35vw + 250px);
+    margin: auto;
+    margin-bottom: 25px;
+    max-width: 100%;
 }
 
 .image-outer span {
@@ -345,4 +349,14 @@ span.input-addon i {
 
 .audio-toggle:hover {
     color:#141d25;
+}
+
+
+
+@media screen and (max-width: 1730px){
+    table#question .edit, table#question .delete {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }

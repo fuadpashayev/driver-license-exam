@@ -24,6 +24,8 @@ function createRoute(){
     $route = explode('.',$route)[0];
     $id='';
     $previous = null;
+    $exceptions = ['login','home'];
+    if(!in_array($route,$exceptions)){
     foreach(Route::current()->parameters() as $route=>$id_param) { $id = $id_param; }
     switch ($route){
         case !$id && 'user':
@@ -32,6 +34,7 @@ function createRoute(){
         case !$id && 'question':
             $previous = route($route.'.create');
             break;
+    }
     }
     return $previous;
 }
