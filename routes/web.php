@@ -23,6 +23,7 @@ Route::group(["middleware" => "admin"], function () {
     Route::resource('question','QuestionController');
     Route::resource('category','CategoryController');
     Route::resource('user','UserController');
+    Route::resource('setting','SettingsController');
 
 
 });

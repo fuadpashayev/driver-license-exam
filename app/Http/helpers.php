@@ -4,15 +4,23 @@
 use Illuminate\Support\Facades\Route;
 
 function previousRoute(){
-    $route = Route::current()->getName();
+    $router = Route::current()->getName();
+    $explode = explode('.',$router);
+    if(count($explode)>1){
+        $route = $explode[0];
+        $create = $explode[1]=="create";
+    }else{
+        $route = $router;
+        $create = false;
+    }
     $id='';
     $previous = null;
-    foreach(Route::current()->parameters() as $route=>$id_param) { $id = $id_param; }
+    foreach(Route::current()->parameters() as $router=>$id_param) { $id = $id_param; }
     switch ($route){
-        case $id && 'user':
-        case $id && 'settings':
-        case $id && 'category':
-        case $id && 'question':
+        case ($id || $create) && 'user':
+        case ($id || $create) && 'setting':
+        case ($id || $create) && 'category':
+        case ($id || $create) && 'question':
             $previous = route($route.'.index');
         break;
     }
@@ -20,21 +28,27 @@ function previousRoute(){
 }
 
 function createRoute(){
-    $route = Route::current()->getName();
-    $route = explode('.',$route)[0];
+    $router = Route::current()->getName();
+    $explode = explode('.',$router);
+    if(count($explode)>1){
+        $route = $explode[0];
+        $create = $explode[1]=="create";
+    }else{
+        $route = $router;
+        $create = false;
+    }
     $id='';
-    $previous = null;
-    $exceptions = ['login','home'];
+    $next = null;
+    $exceptions = ['login','home','setting'];
     if(!in_array($route,$exceptions)){
-    foreach(Route::current()->parameters() as $route=>$id_param) { $id = $id_param; }
+    foreach(Route::current()->parameters() as $router=>$id_param) { $id = $id_param; }
     switch ($route){
-        case !$id && 'user':
-        case !$id && 'settings':
-        case !$id && 'category':
-        case !$id && 'question':
-            $previous = route($route.'.create');
+        case !$id && !$create && 'user':
+        case !$id && !$create && 'category':
+        case !$id && !$create && 'question':
+            $next = route($route.'.create');
             break;
     }
     }
-    return $previous;
+    return $next;
 }

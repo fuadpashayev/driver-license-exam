@@ -13,8 +13,10 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('setting', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('title');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('setting');
     }
 }

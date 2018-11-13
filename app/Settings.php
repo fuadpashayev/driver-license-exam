@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Setting extends Model
+class Settings extends Model
 {
     public function getCreatedAtAttribute($date)
     {

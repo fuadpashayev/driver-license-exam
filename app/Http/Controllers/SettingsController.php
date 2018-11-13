@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Settings;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        $settings = Settings::findOrFail(1);
+        return view('setting.index',['settings'=>$settings]);
     }
 
     /**
@@ -56,7 +58,8 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $settings = Settings::findOrFail($id);
+        return view('setting.edit',['settings'=>$settings]);
     }
 
     /**
@@ -68,7 +71,16 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'url' => ['required', 'string', 'max:255'],
+        ]);
+
+        $settings = Settings::findOrFail($id);
+        $settings->title = $request->title;
+        $settings->url = $request->url;
+        $settings->save();
+        return redirect()->route('setting.index');
     }
 
     /**

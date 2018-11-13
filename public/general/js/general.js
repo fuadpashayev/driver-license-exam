@@ -41,21 +41,33 @@ $(document).on("click","#delete",function(){
         }
     })
 })
+$.fn.play = function(){
+    $(this).trigger('play')
+}
+$.fn.pause = function(){
+    $(this).trigger('pause')
+}
 
-var lightbox = $('a.image').simpleLightbox({closeText:'×',captionSelector:'img',nav:false,showCounter: false});
+var lightbox = $('a.image').simpleLightbox({closeText:'×',captionSelector:'img',nav:false,showCounter: false,fileExt:false});
 
 $(document).on("click",".audio-toggle",function(){
-    let action = $(this).text()=='pause_circle_filled'?'pause':'play'
-    if(action=='play'){
-        $(this).parents('tr').find('audio').trigger('play')
+    let action = $(this).text()==='pause_circle_filled'?'pause':'play'
+    let player = $(this).parent().find('audio')
+    if(action==='play'){
+        player.play()
         $(this).text('pause_circle_filled')
     }else{
-        $(this).parents('tr').find('audio').trigger('pause')
+        player.pause()
         $(this).text('play_circle_filled')
     }
-
 })
 
-$('audio').on('ended',function(){
+$(document).on('ended','audio',function(){
     $(this).next('.audio-toggle').text('play_circle_filled')
 })
+
+function bindEvents(){
+    $('audio').off('ended').on('ended', function (e) {
+        $(this).next('.audio-toggle').text('play_circle_filled')
+    });
+}

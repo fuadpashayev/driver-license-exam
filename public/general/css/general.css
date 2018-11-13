@@ -242,7 +242,7 @@ form.slide div input, form.slide div select {
 }
 
 .input-box.submit {
-    margin-top: 3px;
+    margin-top: 30px;
     margin-right: -1.5px;
     text-align: right;
     display: flex;
@@ -350,6 +350,80 @@ span.input-addon i {
 .audio-toggle:hover {
     color:#141d25;
 }
+
+.input-group-header {
+    padding: 10px 0;
+    color: #263544;
+}
+
+.hidden{
+    display: none;
+}
+
+span#add-question {
+    cursor: pointer;
+    background: #009688;
+    color: #fff;
+    padding: 6px 11px;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+}
+
+span#add-question:hover {
+    background: #04756b;
+}
+
+.file-input {
+    border: 1px solid #d0d0d0;
+    height: 45px;
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    background: white;
+    cursor: pointer;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+    padding-left: 10px;
+}
+.file-input:hover {
+    background: #efefef;
+}
+.file-input.content-added{
+    width: calc(100% - 100px);
+}
+
+.preview {
+    width: 60px;
+    height: 45px;
+    background: white;
+    position: relative;
+    border: 1px solid #d0d0d0;
+    border-left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.preview:hover {
+    background: #efefef;
+}
+
+.preview img {
+    width: 58px;
+    height: 43px;
+}
+
+
+.relative{
+    position: relative;
+}
+
 
 
 

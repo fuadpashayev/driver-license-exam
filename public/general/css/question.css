@@ -24,3 +24,21 @@
     border-bottom: 1px solid #e3e3e3;
     margin: auto;
 }
+
+span.delete-question {
+    color: white;
+    background: #F44336;
+    vertical-align: -6px;
+    margin-left: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+}
+
+span.delete-question:hover {
+    background: #c13329;
+}
