@@ -11,6 +11,8 @@ class Question extends Model
         return $this->hasOne('App\Category');
     }
 
+
+
     public function getCreatedAtAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y H:i:s');

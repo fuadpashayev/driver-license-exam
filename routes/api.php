@@ -19,5 +19,21 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
         Route::post('me', 'Api\AuthController@me');
         Route::post('register','Api\AuthController@register');
     });
-    
+
+    Route::group(['prefix' => 'question'], function ($router) {
+        Route::post('/','Api\QuestionController@index');
+        Route::post('/{random}','Api\QuestionController@index');
+        Route::post('/{id}','Api\QuestionController@show');
+    });
+
+    Route::group(['prefix' => 'category'], function ($router) {
+        Route::post('/questions','Api\QuestionController@questionsFromCategories');
+        Route::post('/','Api\QuestionController@categoryAll');
+        Route::post('/{id}','Api\QuestionController@questionsFromCategory');
+        Route::post('/{id}/{all}','Api\QuestionController@questionsFromCategory');
+        Route::post('/{id}/questions','Api\QuestionController@questionsFromCategory');
+
+    });
+
+
 });

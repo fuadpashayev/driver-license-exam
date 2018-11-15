@@ -9,9 +9,12 @@ function refresh(){
     location.reload()
 }
 
-$(document).on("click","[role='delete']",function(){
+$(document).on("click","[role='delete']",function(e){
+    e.stopPropagation()
+    e.preventDefault()
+    e.stopImmediatePropagation()
     $("#deleteModal").modal("show")
-    let id = $(this).parents('tr').attr("id")
+    let id = $(this).parents('tr,.input-box-group').attr("id")
     let route = $(this).attr("route")
     $('#delete').attr({"data":id,"route":route})
 })
@@ -32,10 +35,11 @@ $(document).on("click","#delete",function(){
                 toastr['error']('Error Happened')
             } else {
                 toastr['success']('This data deleted successfully')
-                if(uri().isDigit())
+                if (uri().isDigit())
                     refresh()
-                else
+                else {
                     $(`#${id}`).remove()
+                 }
 
             }
         }
@@ -71,3 +75,7 @@ function bindEvents(){
         $(this).next('.audio-toggle').text('play_circle_filled')
     });
 }
+
+$(function(){
+    bindEvents()
+})

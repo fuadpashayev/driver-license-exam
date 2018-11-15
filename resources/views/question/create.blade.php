@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         @foreach ($errors->all() as $message) {
         {{$message}}
         @endforeach
-        <form method="post" action="{{route('question.store')}}" class="slide">
+        <form method="post" action="{{route('question.store')}}" class="slide" enctype="multipart/form-data">
             @csrf
             <div class="input-box-group">
                 <div class="input-group-header">Main Question</div>
@@ -17,7 +17,7 @@
                     <span class="input-addon">
                         <i class="material-icons">subtitles</i>
                     </span>
-                    <input id="main-question" name="text" required="" placeholder="Question">
+                    <input id="main-question" name="text[]" required="" placeholder="Question">
                 </div>
 
                 <div class="input-box">
@@ -40,6 +40,24 @@
                             <source src="" type="audio/mpeg"/>
                         </audio>
                         <div class="audio-toggle material-icons relative">play_circle_filled</div>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                <span class="input-addon">
+                    <i class="material-icons">dns</i>
+                </span>
+                    <div class="dropdown-select">
+                        <div class="select">
+                            <span>Category</span>
+                            <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <input type="hidden" name="category" value="">
+                        <ul class="dropdown-menu-select">
+                            @foreach($categories as $category)
+                                <li id="{{$category->id}}">{{$category->name}}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

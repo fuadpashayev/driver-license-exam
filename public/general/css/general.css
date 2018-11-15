@@ -424,6 +424,13 @@ span#add-question:hover {
     position: relative;
 }
 
+.container-fliud{
+    width: calc(25vw + 25% + 250px);
+}
+
+.flex{
+    display: flex;
+}
 
 
 

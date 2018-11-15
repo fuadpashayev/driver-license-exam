@@ -34,7 +34,7 @@
                             <div class="audio-toggle material-icons">play_circle_filled</div>
                         </td>
                         <td>
-                            <a href="{{route('question.edit',$child_question->id)}}"><button class="btn btn-primary edit" role="edit"><i class="material-icons" data-target="#deleteModal">edit</i> Edit</button></a>
+                            <a href="{{route('question.edit',$parent_question->id)}}"><button class="btn btn-primary edit" role="edit"><i class="material-icons" data-target="#deleteModal">edit</i> Edit</button></a>
                             <a href="" onclick="return false;"><button class="btn btn-danger delete" route="{{route('question.destroy',['id'=>$child_question->id])}}" role="delete" data-target="#deleteModal"><i class="material-icons">delete</i> Delete</button></a>
                         </td>
                     </tr>

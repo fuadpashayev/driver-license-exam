@@ -9,7 +9,7 @@ $(document).on("click","#add-question",function(){
                 <span class="input-addon">
                     <i class="material-icons">subtitles</i>
                 </span>
-                <input name="text[]" required="" placeholder="Question">
+                <input name="text[n${id}]" required="" placeholder="Question">
             </div>
             <div class="input-box">
                 <span class="input-addon">
@@ -20,7 +20,7 @@ $(document).on("click","#add-question",function(){
                         <span>Answer</span>
                         <i class="fa fa-chevron-left"></i>
                     </div>
-                    <input type="hidden" name="role" value="">
+                    <input type="hidden" name="answer[n${id}]" value="">
                     <ul class="dropdown-menu-select">
                         <li id="1">Right</li>
                         <li id="0">Wrong</li>
@@ -31,7 +31,7 @@ $(document).on("click","#add-question",function(){
                 <span class="input-addon">
                     <i class="material-icons">audiotrack</i>
                 </span>
-                <input name="audio[]" type="file" id="audio_${id}" class="hidden">
+                <input name="audio[n${id}]" type="file" id="audio_${id}" class="hidden">
                 <div class="file-input audio-input" for="audio_${id}">Upload</div>
                     <div class="preview">
                         <audio controls style="display: none;">
@@ -76,6 +76,9 @@ $.fn.flex = function(){
    return $(this).css("display","flex")
 }
 
+$(function(){
+    bindEvents()
+})
 
 $(document).on("change","input",function(){
     let type = $(this).val().split('.').slice(-1)[0].toLowerCase();
