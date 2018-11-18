@@ -72,3 +72,19 @@
     padding: 10px;
     overflow: auto;
 }
+
+.bdr{
+    border-bottom: 1px solid #ababab;
+}
+
+input:disabled {
+    color: #FF5722;
+}
+
+.inp-header {
+    padding: 2px 15px;
+    background: #3490dc;
+    color: #fff;
+    margin: 5px 5px;
+    border-radius: 3px;
+}

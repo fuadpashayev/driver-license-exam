@@ -20,8 +20,13 @@ $loading = '<div class="sk-fading-circle loading">
 @endphp
     <div class="container-fluid col-8">
         <div class="input-group spc-inp">
+            <div class="inp-header">Categories</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">Categories</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.categories.all")}}"/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
@@ -30,8 +35,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">Questions from specific category</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">Questions from specific category</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.category.questions",['id'=>1])}}"/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
@@ -40,8 +50,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">25 random questions from specific category</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">25 random questions from specific category</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.category.questions.random",['id'=>1,'random'=>'random'])}}"/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
@@ -50,8 +65,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">25 random questions from several categories</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">25 random questions from several categories</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.categories.questions")}}"/>
             </div>
             <div class="inp-group">

@@ -20,8 +20,13 @@ $loading = '<div class="sk-fading-circle loading">
 @endphp
     <div class="container-fluid col-8">
         <div class="input-group spc-inp">
+            <div class="inp-header">Login</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">Login</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.login")}}"/>
             </div>
             <div class="inp-group">
@@ -38,8 +43,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">Register</div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST"/>
+            </div>
             <div class="inp-group">
-                <div class="input-group-header">Register</div>
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.register")}}"/>
             </div>
             <div class="inp-group">
@@ -63,8 +73,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">Profile</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">Profile</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.profile")}}"/>
             </div>
             <div class="inp-group">
@@ -77,8 +92,13 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">Logout</div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">Logout</div>
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.logout")}}"/>
             </div>
             <div class="inp-group">

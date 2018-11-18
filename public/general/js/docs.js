@@ -13,7 +13,6 @@ $(document).on("click",".test",function(){
         if(type=='header')
             headers[key] = value
         else{
-            if(key=="categories") console.log(value)
             data[key] = value
         }
     })
