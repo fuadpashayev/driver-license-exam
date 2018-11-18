@@ -13,25 +13,24 @@
 Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
 
     Route::group(['prefix' => 'auth'], function ($router) {
-        Route::post('login', 'Api\AuthController@login');
-        Route::post('logout', 'Api\AuthController@logout');
-        Route::post('refresh', 'Api\AuthController@refresh');
-        Route::post('me', 'Api\AuthController@me');
-        Route::post('register','Api\AuthController@register');
+        Route::post('login', 'Api\AuthController@login')->name('api.login');
+        Route::post('logout', 'Api\AuthController@logout')->name('api.logout');
+        Route::post('refresh', 'Api\AuthController@refresh')->name('api.refresh');
+        Route::post('me', 'Api\AuthController@me')->name('api.profile');
+        Route::post('register','Api\AuthController@register')->name('api.register');
     });
 
     Route::group(['prefix' => 'question'], function ($router) {
-        Route::post('/','Api\QuestionController@index');
-        Route::post('/{random}','Api\QuestionController@index');
-        Route::post('/{id}','Api\QuestionController@show');
+        Route::any('/','Api\QuestionController@index')->name('api.questions.all');
+        Route::any('/{random}','Api\QuestionController@index')->name('api.questions.random');
+        Route::any('/{id}/get','Api\QuestionController@show')->name('api.question');
     });
 
     Route::group(['prefix' => 'category'], function ($router) {
-        Route::post('/questions','Api\QuestionController@questionsFromCategories');
-        Route::post('/','Api\QuestionController@categoryAll');
-        Route::post('/{id}','Api\QuestionController@questionsFromCategory');
-        Route::post('/{id}/{all}','Api\QuestionController@questionsFromCategory');
-        Route::post('/{id}/questions','Api\QuestionController@questionsFromCategory');
+        Route::any('/questions','Api\QuestionController@questionsFromCategories')->name('api.categories.questions');
+        Route::any('/','Api\QuestionController@categoryAll')->name('api.categories.all');
+        Route::any('/{id}','Api\QuestionController@questionsFromCategory')->name('api.category.questions');
+        Route::any('/{id}/{random}','Api\QuestionController@questionsFromCategory')->name('api.category.questions.random');
 
     });
 

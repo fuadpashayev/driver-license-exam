@@ -20,7 +20,7 @@
                     <td><a class="image" href="{{asset($question->image_url)}}"><img title="{{$question->text}}" src="{{asset($question->image_url)}}"/></a></td>
                     <td>{{$question->text}}</td>
                     <td>{{$child_questions}}</td>
-                    <td><a href="{{route('question.show',$question->id)}}"><button class="btn btn-secondary view"><i class="material-icons" data-target="#deleteModal">remove_red_eye</i> View</button></a> <a href="{{route('question.edit',$question->id)}}"><button class="btn btn-primary edit"><i class="material-icons" data-target="#deleteModal">edit</i> Edit</button></a> <a href="#"><button class="btn btn-danger delete" data-target="#deleteModal"><i class="material-icons">delete</i> Delete</button></a></td>
+                    <td><a href="{{route('question.show',$question->id)}}"><button class="btn btn-secondary view"><i class="material-icons">remove_red_eye</i> View</button></a> <a href="{{route('question.edit',$question->id)}}"><button class="btn btn-primary edit"><i class="material-icons">edit</i> Edit</button></a> <a href="#"><button class="btn btn-danger delete" data-target="#deleteModal" role="delete" route="{{route('question.destroy',['id'=>$question->id])}}"><i class="material-icons">delete</i> Delete</button></a></td>
                 </tr>
             @endforeach
             </tbody>

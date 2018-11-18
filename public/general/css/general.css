@@ -434,7 +434,9 @@ span#add-question:hover {
 
 
 
-@media screen and (max-width: 1730px){
+
+
+@media screen and (max-width: 1000px){
     table#question .edit, table#question .delete {
         width: 100%;
         display: flex;

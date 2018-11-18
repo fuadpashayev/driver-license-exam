@@ -11,11 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 
 Auth::routes();
+
+Route::group(["middleware" => "web"], function () {
+    Route::get('docs','DocsController@auth');
+    Route::get('docs/auth','DocsController@auth')->name('docs.auth');
+    Route::get('docs/category','DocsController@category')->name('docs.category');
+    Route::get('docs/question','DocsController@question')->name('docs.question');
+    
+});
+
+
 
 Route::group(["middleware" => "admin"], function () {
 

@@ -44,3 +44,11 @@
         </div>
     </div>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{asset('general/css/question.css')}}"/>
+@endsection
+
+@section('js')
+    <script src="{{asset('general/js/question.js')}}"></script>
+@endsection

@@ -61,9 +61,9 @@ class QuestionController extends Controller
         for($i=1;$i<count($request->text);$i++){
                 $child_question = new Question;
                 $child_question->category_id = $category_id;
-                $child_question->text = $request->text[$i];
-                $child_question->answer = $request->answer[$i-1];
-                $child_question->audio_url = '/storage/'.$request->file('audio')[$i]->store('audio');
+                $child_question->text = $request->text["n$i"];
+                $child_question->answer = $request->answer["n$i"];
+                $child_question->audio_url = '/storage/'.$request->file('audio')["n$i"]->store('audio');
                 $child_question->user_id = $user_id;
                 $child_question->parent_id = $parent_question->id;
                 $child_question->save();
@@ -141,7 +141,7 @@ class QuestionController extends Controller
         $parent_question->user_id = $user_id;
         $parent_question->save();
         //dd($texts);
-        dd(phpinfo());
+        //dd(phpinfo());
         foreach($texts as $index => $questionn){
             $check = Question::find($index);
             if($check){

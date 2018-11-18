@@ -79,3 +79,9 @@ function bindEvents(){
 $(function(){
     bindEvents()
 })
+
+$(document).on("click",".dropdown",function(e){
+    e.stopPropagation()
+    e.stopImmediatePropagation()
+    $(".dropdown-menu").toggle()
+})
