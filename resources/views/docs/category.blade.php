@@ -20,7 +20,7 @@ $loading = '<div class="sk-fading-circle loading">
 @endphp
     <div class="container-fluid col-8">
         <div class="input-group spc-inp">
-            <div class="inp-header">Categories</div>
+            <div class="inp-header">Fetch all categories</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -31,11 +31,11 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">Questions from specific category</div>
+            <div class="inp-header">Fetch all questions from specific category</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -46,11 +46,11 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">25 random questions from specific category</div>
+            <div class="inp-header">Fetch 25 random questions from specific category</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -61,26 +61,27 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">25 random questions from several categories</div>
+            <div class="inp-header">Fetch 25 random questions from several categories</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
             </div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">URL</div>
+                <div class="input-group-header bdr">URL</div>
                 <input role="url" value="{{route("api.categories.questions")}}"/>
             </div>
             <div class="inp-group">
+                <div class="input-group-header">Parameter</div>
                 <div class="input-group-header simple" contenteditable="true" placeholder="categories" role="key">categories</div>
                 <input role="value" value='{"list":[1,3,5]}'/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         

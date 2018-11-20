@@ -15,20 +15,39 @@ class QuestionController extends Controller
             $questions = Question::where("parent_id",null)->get();
         elseif($type=='random')
             $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
-        return response()->json(['questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+
+        if(count($questions))
+            $status = "success";
+        else{
+            $status = "error";
+            $questions = null;
+        }
+        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
 
     public function show($id)
     {
         $question = Question::find($id);
-        return response()->json([$id=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
+        if($question)
+            $status = "success";
+        else{
+            $status = "error";
+            $question = null;
+        }
+        return response()->json(['status'=>$status,$id=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
     }
 
 
     public function categoryAll(){
         $categories = Category::all();
-        return response()->json(['categories'=>$categories],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        if(count($categories))
+            $status = "success";
+        else{
+            $status = "error";
+            $categories = null;
+        }
+        return response()->json(['status'=>$status,'categories'=>$categories],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function questionsFromCategory($id,$all=25){
@@ -37,7 +56,13 @@ class QuestionController extends Controller
         if($all=='random')
             $questions = $questions->limit(25)->inRandomOrder();
         $questions = $questions->get();
-        return response()->json(['questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
+        if(count($questions))
+            $status = "success";
+        else{
+            $status = "error";
+            $questions = null;
+        }
+        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
 
     }
 
@@ -45,7 +70,13 @@ class QuestionController extends Controller
         $categories = $request->categories;
         $categories = json_decode($categories,1)["list"];
         $questions = Question::whereIn('category_id',$categories)->inRandomOrder()->limit(25)->get();
-        return response()->json(['questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
+        if(count($questions))
+            $status = "success";
+        else{
+            $status = "error";
+            $questions = null;
+        }
+        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
 
     }
 

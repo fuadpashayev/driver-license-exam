@@ -20,7 +20,7 @@ $loading = '<div class="sk-fading-circle loading">
 @endphp
     <div class="container-fluid col-8">
         <div class="input-group spc-inp">
-            <div class="inp-header">All questions</div>
+            <div class="inp-header">Fetch all questions</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -31,11 +31,11 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">25 random questions</div>
+            <div class="inp-header">Fetch 25 random questions</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -46,11 +46,11 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">1 specific question</div>
+            <div class="inp-header">Fetch 1 specific question data</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -61,7 +61,7 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
-            <div class="result"></div>
+            <pre class="result"></pre>
         </div>
     
     </div>
