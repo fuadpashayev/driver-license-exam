@@ -60,6 +60,7 @@ a{
     -o-transition: 220ms;
     transition: 220ms;
     border-left: 3px solid transparent;
+    cursor: pointer;
 }
 .nav-menu:hover {
     color: #fff;

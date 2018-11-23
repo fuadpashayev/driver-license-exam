@@ -23,9 +23,9 @@
 
     <div id="wrapper">
         <div id="navigation">
-            <a href="{{route("docs.auth")}}"><div class="nav-menu {{Route::currentRouteName()=='docs.auth'?'active':null}}"><i class="material-icons">people</i> Authentiacation</div></a>
-            <a href="{{route("docs.category")}}"><div class="nav-menu {{Route::currentRouteName()=='docs.category'?'active':null}}"><i class="material-icons">dns</i> Category</div></a>
-            <a href="{{route("docs.question")}}"><div class="nav-menu {{Route::currentRouteName()=='docs.question'?'active':null}}"><i class="material-icons">assignment</i> Question</div></a>        
+            <div class="nav-menu" for="authentication"><i class="material-icons">people</i> Authentiacation</div>
+            <div class="nav-menu" for="category"><i class="material-icons">dns</i> Category</div>
+            <div class="nav-menu" for="question"><i class="material-icons">assignment</i> Question</div>
         </div>
         <div id="app">
             <main class="py-4">

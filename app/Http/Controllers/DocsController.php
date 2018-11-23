@@ -9,7 +9,7 @@ class DocsController extends Controller
 {
     public function auth(){
         $user = Auth::user();
-        return view('docs.auth',['user'=>$user]);
+        return view('docs.index');
     }
 
     public function category(){

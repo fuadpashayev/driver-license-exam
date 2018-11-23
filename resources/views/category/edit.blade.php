@@ -14,7 +14,7 @@
             @method('put')
             <div class="input-box">
                 <span class="input-addon">
-                    <i class="material-icons">person</i>
+                    <i class="material-icons">subtitles</i>
                 </span>
                 <input name="name" required="" placeholder="Name" value="{{$category->name}}">
             </div>
