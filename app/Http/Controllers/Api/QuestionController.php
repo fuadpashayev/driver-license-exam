@@ -16,26 +16,34 @@ class QuestionController extends Controller
         elseif($type=='random')
             $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
 
-        if(count($questions))
+        if(count($questions)){
             $status = "success";
-        else{
+            $returnQuestions = [];
+            foreach ($questions as $question){
+                $sub_questions = Question::where("parent_id",$question->id)->get();
+                $question->sub_questions = $sub_questions;
+                $returnQuestions[] = $question;
+            }
+        }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
 
     public function show($id)
     {
         $question = Question::find($id);
-        if($question)
+        if($question){
             $status = "success";
-        else{
+            $sub_questions = Question::where("parent_id",$question->id)->get();
+            $question->sub_questions = $sub_questions;
+        }else{
             $status = "error";
             $question = null;
         }
-        return response()->json(['status'=>$status,$id=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
+        return response()->json(['status'=>$status,'question'=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
     }
 
 
