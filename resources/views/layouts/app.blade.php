@@ -46,8 +46,10 @@
         <div id="navigation">
             <div class="nav-header">Primary</div>
             <a href="{{route('home')}}"><div class="nav-menu {{routeCheck('home')?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
-            <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
-            <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
+            @if(isAdmin())
+                <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
+                <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
+            @endif
             <div class="nav-header">General</div>
             <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
             <a href="{{route('question.index')}}"><div class="nav-menu {{routeCheck('question')?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>

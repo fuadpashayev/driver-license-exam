@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminMiddleware
+class LoginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,14 +15,19 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $adminLoginUrl = '/';
+        $adminLoginUrl = '/login';
 
         if (!auth()->guest()) {
             $user = auth()->user();
-            if ($user->roles[0]->name=='admin') {
+            if ($user->hasRole(['admin', 'editor'])) {
                 return $next($request);
             } else {
-                return redirect($adminLoginUrl);
+                auth()->logout();
+                // error message
+                return redirect($adminLoginUrl)
+                    ->withErrors([
+                        "email" => trans('auth.failed'),
+                    ]);
             }
         }
 

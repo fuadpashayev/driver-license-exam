@@ -26,7 +26,7 @@ Route::group(["middleware" => "web"], function () {
 
 
 
-Route::group(["middleware" => "admin"], function () {
+Route::group(["middleware" => "login"], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('question','QuestionController');

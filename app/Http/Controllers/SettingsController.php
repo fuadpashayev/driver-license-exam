@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Settings;
 use Illuminate\Http\Request;
 
+
+
 class SettingsController extends Controller
 {
     /**
@@ -12,6 +14,12 @@ class SettingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+       $this->middleware('admin');
+    }
+
     public function index()
     {
         $settings = Settings::findOrFail(1);

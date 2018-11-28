@@ -1,6 +1,8 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 function previousRoute(){
@@ -57,4 +59,9 @@ function createRoute(){
 function routeCheck($check){
     $route = Route::currentRouteName();
     return preg_match("/$check/im",$route);
+}
+
+function isAdmin(){
+    $roles = Auth::user()->roles[0]->name;
+    return $roles=='admin';
 }
