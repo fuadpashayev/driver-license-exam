@@ -25,7 +25,7 @@
                     <span class="input-addon">
                         <i class="material-icons">image</i>
                     </span>
-                    <input name="image[]" type="file" id="image" class="hidden">
+                    <input name="image[]" type="file" id="image" class="hidden" role="image">
                     <div class="file-input image-input content-added" for="image">Upload</div>
                     <div class="preview flex"><a class="image" href="{{$parent_question->image_url}}"><img src="{{$parent_question->image_url}}" title="{{$parent_question->text}}"></a></div>
                 </div>
@@ -34,7 +34,7 @@
                     <span class="input-addon">
                         <i class="material-icons">audiotrack</i>
                     </span>
-                    <input name="audio[{{$parent_question->id}}]" type="file" id="audio_0" class="hidden">
+                    <input name="audio[{{$parent_question->id}}]" type="file" id="audio_0" class="hidden" role="audio">
                     <div class="file-input audio-input content-added" for="audio_0">Upload</div>
                     <div class="preview flex">
                         <audio controls style="display: none;" src="{{$parent_question->audio_url}}">

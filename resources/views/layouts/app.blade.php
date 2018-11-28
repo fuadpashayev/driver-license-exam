@@ -12,10 +12,14 @@
     <link href="{{ asset('general/css/general.css') }}" rel="stylesheet">
     <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select.css') }}" rel="stylesheet">
+    <link href="{{ asset('general/css/loading.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     @yield('css')
 </head>
 <body>
+    <div id="loader">
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
 
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -41,12 +45,12 @@
         @auth
         <div id="navigation">
             <div class="nav-header">Primary</div>
-            <a href="{{route('home')}}"><div class="nav-menu {{Route::currentRouteName()=='home'?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
-            <a href="{{route('user.index')}}"><div class="nav-menu {{Route::currentRouteName()=='user.index'?'active':null}}"><i class="material-icons">people</i> Users</div></a>
-            <a href="{{route('setting.index')}}"><div class="nav-menu {{Route::currentRouteName()=='settings'?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
+            <a href="{{route('home')}}"><div class="nav-menu {{routeCheck('home')?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
+            <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
+            <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
             <div class="nav-header">General</div>
-            <a href="{{route('category.index')}}"><div class="nav-menu {{Route::currentRouteName()=='category.index'?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
-            <a href="{{route('question.index')}}"><div class="nav-menu {{Route::currentRouteName()=='question.index'?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
+            <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
+            <a href="{{route('question.index')}}"><div class="nav-menu {{routeCheck('question')?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
         </div>
         @endauth
         <div id="app" style="@guest width:100%; @endguest">

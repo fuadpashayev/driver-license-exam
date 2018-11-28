@@ -31,7 +31,7 @@ $(document).on("click","#add-question",function(){
                 <span class="input-addon">
                     <i class="material-icons">audiotrack</i>
                 </span>
-                <input name="audio[n${id}]" type="file" id="audio_${id}" class="hidden">
+                <input name="audio[n${id}]" type="file" id="audio_${id}" class="hidden" role="audio">
                 <div class="file-input audio-input" for="audio_${id}">Upload</div>
                     <div class="preview">
                         <audio controls style="display: none;">
@@ -80,20 +80,25 @@ $(function(){
     bindEvents()
 })
 
-$(document).on("change","input",function(){
-    let type = $(this).val().split('.').slice(-1)[0].toLowerCase();
-    let previewHolder = $(this).parents(".input-box").find('.preview');
+$(document).on("change","input[type='file']",function(){
+    let type = $(this).val().split('.').slice(-1)[0].toLowerCase()
+    let previewHolder = $(this).parents(".input-box").find('.preview')
+    let role = $(this).attr("role")
     previewHolder.flex().prev(".file-input").addClass("content-added")
-
-    if(imageTypes.includes(type)){
+    console.log(role)
+    if(imageTypes.includes(type) && role==="image"){
         previewHolder.find("img").preview(this)
         previewHolder.find("a").preview(this,"a")
         let text = $("#main-question").val()
         previewHolder.find("img").attr("title",text)
-    }else if(audioTypes.includes(type)){
+    }else if(audioTypes.includes(type) && role==="audio"){
         let file = $(this).prop('files')[0];
         previewHolder.find("source,audio").attr("src",URL.createObjectURL(file))
         bindEvents()
+    }else{
+        $(this).val("")
+        toastr['error'](`Wrong ${role} file type`)
+        previewHolder.hide().prev(".file-input").removeClass("content-added")
     }
 })
 

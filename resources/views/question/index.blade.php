@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <table class="data" id="category" border="1">
+        <table class="data" id="question" border="1">
             <thead>
             <tr>
                 <td>Image</td>
@@ -26,10 +26,6 @@
             </tbody>
         </table>
     </div>
-@endsection
-
-@section('css')
-    <link rel="stylesheet" href="{{asset('general/css/question.css')}}"/>
 @endsection
 
 @section('js')

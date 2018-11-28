@@ -27,10 +27,6 @@
     </div>
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{asset('general/css/category.css')}}"/>
-@endsection
-
 @section('js')
     <script src="{{asset('general/js/category.js')}}"></script>
 @endsection

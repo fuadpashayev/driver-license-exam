@@ -14,14 +14,14 @@
             @method('put')
             <div class="input-box">
                 <span class="input-addon">
-                    <i class="material-icons">person</i>
+                    <i class="material-icons">subtitles</i>
                 </span>
                 <input name="title" required="" placeholder="Title" value="{{$settings->title}}">
             </div>
 
             <div class="input-box">
                 <span class="input-addon">
-                    <i class="material-icons">alternate_email</i>
+                    <i class="material-icons">link</i>
                 </span>
                 <input name="url" required="" placeholder="URL" value="{{$settings->url}}">
             </div>

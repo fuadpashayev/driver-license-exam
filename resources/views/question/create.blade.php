@@ -24,7 +24,7 @@
                     <span class="input-addon">
                         <i class="material-icons">image</i>
                     </span>
-                    <input name="image[]" type="file" id="image" class="hidden">
+                    <input name="image[]" type="file" id="image" class="hidden" role="image">
                     <div class="file-input image-input" for="image">Upload</div>
                     <div class="preview"><a class="image" href=""><img src="" title=""></a></div>
                 </div>
@@ -33,7 +33,7 @@
                     <span class="input-addon">
                         <i class="material-icons">audiotrack</i>
                     </span>
-                    <input name="audio[]" type="file" id="audio_0" class="hidden">
+                    <input name="audio[]" type="file" id="audio_0" class="hidden" role="audio">
                     <div class="file-input audio-input" for="audio_0">Upload</div>
                     <div class="preview">
                         <audio controls style="display: none;">

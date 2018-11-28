@@ -113,7 +113,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request);
+
         $request->validate([
             'text' => ['required', 'array'],
             'image' => ['nullable', 'array'],
@@ -131,17 +131,15 @@ class QuestionController extends Controller
         $parent_question->category_id = $category_id;
         $parent_question->text = $texts[$parent_question->id];
         unset($texts[$parent_question->id]);
-        if(isset($request->image[$parent_question->id]))
-            $parent_question->image_url = '/storage/'.$request->file('image')[$parent_question->id]->store('image');
+        if(isset($request->image[0]))
+            $parent_question->image_url = '/storage/'.$request->file('image')[0]->store('image');
         if(isset($request->audio[$parent_question->id])){
             $parent_question->audio_url = '/storage/'.$audios[$parent_question->id]->store('audio');
             unset($audios[$parent_question->id]);
         }
-
+//        dd($request->file('image')[0]);
         $parent_question->user_id = $user_id;
         $parent_question->save();
-        //dd($texts);
-        //dd(phpinfo());
         foreach($texts as $index => $questionn){
             $check = Question::find($index);
             if($check){

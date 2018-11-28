@@ -52,3 +52,9 @@ function createRoute(){
     }
     return $next;
 }
+
+
+function routeCheck($check){
+    $route = Route::currentRouteName();
+    return preg_match("/$check/im",$route);
+}
