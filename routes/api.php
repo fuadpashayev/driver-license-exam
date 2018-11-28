@@ -22,6 +22,7 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
 
     Route::group(['prefix' => 'question'], function ($router) {
         Route::any('/','Api\QuestionController@index')->name('api.questions.all');
+        Route::any('/{with_sub_questions}','Api\QuestionController@index')->name('api.questions.with_sub_questions');
         Route::any('/{random}','Api\QuestionController@index')->name('api.questions.random');
         Route::any('/{id}/get','Api\QuestionController@show')->name('api.question');
     });

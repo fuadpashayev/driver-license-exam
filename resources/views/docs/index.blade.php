@@ -207,6 +207,7 @@ $loading = '<div class="sk-fading-circle loading">
 
 <div class="container-fluid col-8" id="question">
     <h3>Question</h3>
+
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch all questions</div>
         <div class="inp-group no-filter">
@@ -216,6 +217,21 @@ $loading = '<div class="sk-fading-circle loading">
         <div class="inp-group no-filter">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.questions.all")}}"/>
+        </div>
+        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
+        </button>
+        <pre class="result"></pre>
+    </div>
+
+    <div class="input-group spc-inp">
+        <div class="inp-header">Fetch all questions with sub questions</div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">Method</div>
+            <input disabled value="POST / GET"/>
+        </div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header">URL</div>
+            <input role="url" value="{{route("api.questions.with_sub_questions",['with_sub_questions'=>'with_sub_questions'])}}"/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>

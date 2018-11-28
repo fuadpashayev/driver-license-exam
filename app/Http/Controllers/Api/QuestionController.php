@@ -11,18 +11,22 @@ class QuestionController extends Controller
 {
     public function index($type='all')
     {
-        if($type=='all')
+        if($type=='all' || $type=='with_sub_questions')
             $questions = Question::where("parent_id",null)->get();
         elseif($type=='random')
             $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
 
         if(count($questions)){
             $status = "success";
-            $returnQuestions = [];
-            foreach ($questions as $question){
-                $sub_questions = Question::where("parent_id",$question->id)->get();
-                $question->sub_questions = $sub_questions;
-                $returnQuestions[] = $question;
+            if($type=='all')
+                $returnQuestions = $questions;
+            else{
+                $returnQuestions = [];
+                foreach ($questions as $question){
+                    $sub_questions = Question::where("parent_id",$question->id)->get();
+                    $question->sub_questions = $sub_questions;
+                    $returnQuestions[] = $question;
+                }
             }
         }else{
             $status = "error";
@@ -62,29 +66,41 @@ class QuestionController extends Controller
 
         $questions = Question::where('category_id',$id);
         if($all=='random')
-            $questions = $questions->limit(25)->inRandomOrder();
+            $questions = $questions->limit(25)->where("parent_id",null)->inRandomOrder();
         $questions = $questions->get();
-        if(count($questions))
+        if(count($questions)){
             $status = "success";
-        else{
+            $returnQuestions = [];
+            foreach ($questions as $question){
+                $sub_questions = Question::where("parent_id",$question->id)->get();
+                $question->sub_questions = $sub_questions;
+                $returnQuestions[] = $question;
+            }
+        }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
 
     }
 
     public function questionsFromCategories(Request $request){
         $categories = $request->categories;
         $categories = json_decode($categories,1)["list"];
-        $questions = Question::whereIn('category_id',$categories)->inRandomOrder()->limit(25)->get();
-        if(count($questions))
+        $questions = Question::whereIn('category_id',$categories)->where("parent_id",null)->inRandomOrder()->limit(25)->get();
+        if(count($questions)){
             $status = "success";
-        else{
+            $returnQuestions = [];
+            foreach ($questions as $question){
+                $sub_questions = Question::where("parent_id",$question->id)->get();
+                $question->sub_questions = $sub_questions;
+                $returnQuestions[] = $question;
+            }
+        }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
 
     }
 
