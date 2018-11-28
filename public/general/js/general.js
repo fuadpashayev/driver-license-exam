@@ -102,23 +102,24 @@ $.fn.flex = function(){
     return $(this).css('display','flex')
 }
 
-var loaded_url
-$(document).on("click","a:not(.image)",function(e){
-    e.preventDefault()
-    var url=$(this).attr("href")
-    loaded_url=$(this)
-    $(".nav-menu.active").removeClass("active")
-    $(this).find(".nav-menu").addClass("active")
-    if(!$("#loader:visible").length)
-        loader()
-    history.pushState(null, null, url)
-    $("#ajax-content").load(url+" #ajax-content",function(responseText, textStatus, XMLHttpRequest){
-
-        if(textStatus=='error')
-            setTimeout(function(){loaded_url.click()},3000)
-        else loader("close")
-
-    })
-
-    return false;
-})
+//
+// var loaded_url
+// $(document).on("click","a:not(.image)",function(e){
+//     e.preventDefault()
+//     var url=$(this).attr("href")
+//     loaded_url=$(this)
+//     $(".nav-menu.active").removeClass("active")
+//     $(this).find(".nav-menu").addClass("active")
+//     if(!$("#loader:visible").length)
+//         loader()
+//     history.pushState(null, null, url)
+//     $("#ajax-content").load(url+" #ajax-content",function(responseText, textStatus, XMLHttpRequest){
+//
+//         if(textStatus=='error')
+//             setTimeout(function(){loaded_url.click()},3000)
+//         else loader("close")
+//
+//     })
+//
+//     return false;
+// })
