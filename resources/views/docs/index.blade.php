@@ -268,6 +268,21 @@ $loading = '<div class="sk-fading-circle loading">
         <pre class="result"></pre>
     </div>
 
+    <div class="input-group spc-inp">
+        <div class="inp-header">Fetch all sub questions from 1 question</div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">Method</div>
+            <input disabled value="POST / GET"/>
+        </div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header">URL</div>
+            <input role="url" value="{{route("api.sub_questions",['id'=>1,'sub_questions'=>'sub_questions'])}}"/>
+        </div>
+        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
+        </button>
+        <pre class="result"></pre>
+    </div>
+
 </div>
 @endsection
 

@@ -102,7 +102,7 @@ $.fn.flex = function(){
     return $(this).css('display','flex')
 }
 
-//
+
 // var loaded_url
 // $(document).on("click","a:not(.image)",function(e){
 //     e.preventDefault()

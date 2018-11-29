@@ -9,7 +9,6 @@
         <div class="card">
             <div class="card-header relative">Settings
                 <div class="right-seat">
-                    {{isAdmin()}}
                     <a href="{{route('setting.edit',1)}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">edit</i> Edit</button></a>
                 </div>
             </div>

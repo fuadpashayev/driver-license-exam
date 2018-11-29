@@ -6,6 +6,7 @@ use App\Category;
 use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use phpDocumentor\Reflection\Types\Null_;
 
 class QuestionController extends Controller
 {
@@ -38,7 +39,7 @@ class QuestionController extends Controller
 
     public function show($id)
     {
-        $question = Question::find($id);
+        $question = Question::where("parent_id",null)->find($id);
         if($question){
             $status = "success";
             $sub_questions = Question::where("parent_id",$question->id)->get();
@@ -101,6 +102,18 @@ class QuestionController extends Controller
             $questions = null;
         }
         return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
+
+    }
+
+    public function sub_questions($question_id){
+        $sub_questions = Question::where("parent_id",$question_id)->get();
+        if(count($sub_questions))
+            $status = "success";
+        else{
+            $status = "error";
+            $questions = null;
+        }
+        return response()->json(['status'=>$status,'sub_questions'=>$sub_questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;;
 
     }
 
