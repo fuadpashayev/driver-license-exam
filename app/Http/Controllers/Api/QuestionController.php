@@ -87,7 +87,9 @@ class QuestionController extends Controller
 
     public function questionsFromCategories(Request $request){
         $categories = $request->categories;
-        $categories = json_decode($categories,1)["list"];
+        $categories = preg_replace('/[\[\]]/i','',$categories);
+        $categories = explode(',',$categories);
+        //dd($categories);
         $questions = Question::whereIn('category_id',$categories)->where("parent_id",null)->inRandomOrder()->limit(25)->get();
         if(count($questions)){
             $status = "success";
