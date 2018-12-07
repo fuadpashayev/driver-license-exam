@@ -89,7 +89,6 @@ class QuestionController extends Controller
         $categories = $request->categories;
         $categories = preg_replace('/[\[\]]/i','',$categories);
         $categories = explode(',',$categories);
-        //dd($categories);
         $questions = Question::whereIn('category_id',$categories)->where("parent_id",null)->inRandomOrder()->limit(25)->get();
         if(count($questions)){
             $status = "success";

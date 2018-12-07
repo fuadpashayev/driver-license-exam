@@ -189,7 +189,7 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="inp-group">
                 <div class="input-group-header">Parameter</div>
                 <div class="input-group-header simple" contenteditable="true" placeholder="categories" role="key">categories</div>
-                <input role="value" value='{"list":[1,3,5]}'/>
+                <input role="value" value='[1,3,5]'/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
