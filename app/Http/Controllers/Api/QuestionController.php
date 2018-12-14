@@ -10,8 +10,7 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class QuestionController extends Controller
 {
-    public function index($type='all')
-    {
+    public function index($type='all'){
         if($type=='all' || $type=='with_sub_questions')
             $questions = Question::where("parent_id",null)->get();
         elseif($type=='random')
@@ -19,16 +18,14 @@ class QuestionController extends Controller
 
         if(count($questions)){
             $status = "success";
-            if($type=='all')
-                $returnQuestions = $questions;
-            else{
+            if($type=='with_sub_questions'){
                 $returnQuestions = [];
                 foreach ($questions as $question){
                     $sub_questions = Question::where("parent_id",$question->id)->get();
                     $question->sub_questions = $sub_questions;
                     $returnQuestions[] = $question;
                 }
-            }
+            }else $returnQuestions = $questions;
         }else{
             $status = "error";
             $questions = null;
@@ -49,6 +46,25 @@ class QuestionController extends Controller
             $question = null;
         }
         return response()->json(['status'=>$status,'question'=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);;
+    }
+
+    public function random_with_sub_questions(){
+        $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
+
+        if(count($questions)){
+            $status = "success";
+            $returnQuestions = [];
+            foreach ($questions as $question){
+                $sub_questions = Question::where("parent_id",$question->id)->get();
+                $question->sub_questions = $sub_questions;
+                $returnQuestions[] = $question;
+            }
+        }else{
+            $status = "error";
+            $questions = null;
+        }
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+
     }
 
 

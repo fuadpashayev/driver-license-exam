@@ -24,6 +24,7 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
         Route::any('/','Api\QuestionController@index')->name('api.questions.all');
         Route::any('/{with_sub_questions}','Api\QuestionController@index')->name('api.questions.with_sub_questions');
         Route::any('/{random}','Api\QuestionController@index')->name('api.questions.random');
+        Route::any('/random/with_sub_questions','Api\QuestionController@random_with_sub_questions')->name('api.questions.random.with_sub_questions');
         Route::any('/{id}/get','Api\QuestionController@show')->name('api.question');
         Route::any('/{id}/{sub_questions}','Api\QuestionController@sub_questions')->name('api.sub_questions');
     });
