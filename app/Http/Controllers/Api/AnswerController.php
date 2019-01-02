@@ -13,12 +13,13 @@ class AnswerController extends Controller
     public function answer(Request $request){
         $data = json_decode($request->data,1);
         $session_id = $data['session_id'];
+        $device_id = $data['device_id'];
         $answers = $data['answers'];
         $return = [];
 
         foreach ($answers as $question_id => $answer){
             $question_id = (int) $question_id;
-            $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id])->get()->count();
+            $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id,"device_id"=>$device_id])->get()->count();
             if($check==0) {
                 $question = Question::find($question_id);
                 $real_answer = $question->answer;
