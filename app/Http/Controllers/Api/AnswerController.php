@@ -18,8 +18,8 @@ class AnswerController extends Controller
 
         foreach ($answers as $question_id => $answer){
             $question_id = (int) $question_id;
-            $check = Session::where("question_id",$question_id)->get();
-            if(!$check) {
+            $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id])->get()->count();
+            if($check==0) {
                 $question = Question::find($question_id);
                 $real_answer = $question->answer;
                 $session = new Session;
