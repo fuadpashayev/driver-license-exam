@@ -305,11 +305,11 @@ $loading = '<div class="sk-fading-circle loading">
             <input disabled value="POST "/>
         </div>
         <div class="inp-group no-filter">
-            <div class="input-group-header">URL</div>
+            <div class="input-group-header bdr">URL</div>
             <input role="url" value="{{route("api.answer")}}"/>
         </div>
         <div class="inp-group">
-            <div class="input-group-header">Parameter</div>
+            <div class="input-group-header bdr">Parameter</div>
             <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">data</div>
             <input role="value" value='{"session_id":"7xzt2l85sflmn42","answers":{"2":0,"3":1,"4":1,"6":0,"7":1}}'/>
         </div>
@@ -325,11 +325,11 @@ $loading = '<div class="sk-fading-circle loading">
             <input disabled value="POST "/>
         </div>
         <div class="inp-group no-filter">
-            <div class="input-group-header">URL</div>
+            <div class="input-group-header bdr">URL</div>
             <input role="url" value="{{route("api.statistics")}}"/>
         </div>
         <div class="inp-group">
-            <div class="input-group-header">Parameter</div>
+            <div class="input-group-header bdr">Parameter</div>
             <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
             <input role="value" value='1234567890'/>
         </div>

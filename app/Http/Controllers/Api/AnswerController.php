@@ -39,12 +39,15 @@ class AnswerController extends Controller
 
     public function statistics(Request $request){
         $device_id = $request->device_id;
-        $data = Session::where("device_id",$device_id)->get();
         $return = [];
-        foreach ($data as $result){
-            $session = [];
-            $session[] = ["answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"]];
-            $return[$result["session_id"]] = $session;
+        $sessions = Session::where("device_id",$device_id)->groupBy("session_id")->get();
+        foreach ($sessions as $session){
+            $results = Session::where("session_id",$session["session_id"])->get();
+            $returnSession = [];
+            foreach ($results as $result){
+                $returnSession[] = ["answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"]];
+            }
+            $return[$session["session_id"]] = $returnSession;
         }
         if(count($return))
             $status = 'successfull';
