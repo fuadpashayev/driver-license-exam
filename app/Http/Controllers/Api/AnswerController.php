@@ -17,6 +17,7 @@ class AnswerController extends Controller
         $return = [];
 
         foreach ($answers as $question_id => $answer){
+            $question_id = (int) $question_id;
             $question = Question::find($question_id);
             $real_answer = $question->answer;
             $session = new Session;
