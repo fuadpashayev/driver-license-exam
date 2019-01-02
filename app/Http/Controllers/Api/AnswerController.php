@@ -26,6 +26,7 @@ class AnswerController extends Controller
                 $session = new Session;
                 $session->session_id = $session_id;
                 $session->question_id = $question_id;
+                $session->device_id = $device_id;
                 $session->answer = $answer;
                 $session->real_answer = $real_answer;
                 $session->save();
