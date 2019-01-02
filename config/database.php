@@ -52,7 +52,7 @@ return [
             'collation' => 'utf8mb4_general_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
         ],
 
