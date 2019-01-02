@@ -37,5 +37,21 @@ class AnswerController extends Controller
         return response()->json(['results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
+    public function statistics(Request $request){
+        $device_id = $request->device_id;
+        $data = Session::where("device_id",$device_id)->get();
+        $return = [];
+        foreach ($data as $result){
+            $session = [];
+            $session[] = ["answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"]];
+            $return[$result["session_id"]] = $session;
+        }
+        if(count($return))
+            $status = 'successfull';
+        else
+            $status = 'error';
+        return response()->json(['status'=>$status,'results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+    }
+
 
 }

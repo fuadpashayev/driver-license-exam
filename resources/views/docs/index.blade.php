@@ -318,6 +318,26 @@ $loading = '<div class="sk-fading-circle loading">
         <pre class="result"></pre>
     </div>
 
+    <div class="input-group spc-inp">
+        <div class="inp-header">Statistics</div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">Method</div>
+            <input disabled value="POST "/>
+        </div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header">URL</div>
+            <input role="url" value="{{route("api.statistics")}}"/>
+        </div>
+        <div class="inp-group">
+            <div class="input-group-header">Parameter</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
+            <input role="value" value='1234567890'/>
+        </div>
+        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
+        </button>
+        <pre class="result"></pre>
+    </div>
+
 </div>
 @endsection
 
