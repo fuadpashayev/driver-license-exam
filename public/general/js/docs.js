@@ -105,6 +105,7 @@ function fixScrollActive(){
     let authentication = $("#authentication").offsetHeight()
     let category = $("#category").offsetHeight()
     let question = $("#question").offsetHeight()
+    let answers = $("#answers").offsetHeight()
     if(currentScroll.inRange(authentication[0],authentication[1])){
         let el = $(".nav-menu[for=authentication]")
         let active = el.hasClass('active')
@@ -121,6 +122,13 @@ function fixScrollActive(){
         }
     }else if(currentScroll.inRange(question[0],question[1])){
         let el = $(".nav-menu[for=question]")
+        let active = el.hasClass('active')
+        if(!active){
+            $(".nav-menu.active").removeClass("active")
+            el.addClass("active")
+        }
+    }else if(currentScroll.inRange(answers[0],answers[1])){
+        let el = $(".nav-menu[for=answers]")
         let active = el.hasClass('active')
         if(!active){
             $(".nav-menu.active").removeClass("active")

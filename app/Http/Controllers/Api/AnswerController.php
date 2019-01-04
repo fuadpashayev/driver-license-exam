@@ -5,16 +5,16 @@ namespace App\Http\Controllers\API;
 
 use App\Question;
 use App\Session;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AnswerController extends Controller
 {
     public function answer(Request $request){
-        $data = json_decode($request->data,1);
-        $session_id = $data['session_id'];
-        $device_id = $data['device_id'];
-        $answers = $data['answers'];
+        $session_id = $request['session_id'];
+        $device_id = $request['device_id'];
+        $answers = json_decode($request['answers'],1);
         $return = [];
 
         foreach ($answers as $question_id => $answer){
@@ -45,15 +45,20 @@ class AnswerController extends Controller
             $results = Session::where("session_id",$session["session_id"])->get();
             $returnSession = [];
             foreach ($results as $result){
-                $returnSession[] = ["answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"]];
+                $returnSession[] = ["session_id"=>$result["session_id"],"answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"],"timestamp"=>$this->asDateTime($result["created_at"])];
             }
             $return[$session["session_id"]] = $returnSession;
         }
         if(count($return))
-            $status = 'successfull';
+            $status = 'successful';
         else
             $status = 'error';
         return response()->json(['status'=>$status,'results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+    }
+
+    protected function asDateTime($value)
+    {
+        return Carbon::parse($value)->timestamp;
     }
 
 

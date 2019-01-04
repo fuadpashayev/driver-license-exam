@@ -298,6 +298,12 @@ $loading = '<div class="sk-fading-circle loading">
         <pre class="result"></pre>
     </div>
 
+
+</div>
+
+<div class="container-fluid col-8" id="answers">
+    <h3>Answers</h3>
+
     <div class="input-group spc-inp">
         <div class="inp-header">Answers</div>
         <div class="inp-group no-filter">
@@ -310,8 +316,18 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">data</div>
-            <input role="value" value='{"session_id":"7xzt2l85sflmn42","answers":{"2":0,"3":1,"4":1,"6":0,"7":1}}'/>
+            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">device_id</div>
+            <input role="value" value='15682101120'/>
+        </div>
+        <div class="inp-group">
+            <div class="input-group-header bdr">Parameter</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">session_id</div>
+            <input role="value" value='7xzt2l85sflmn42'/>
+        </div>
+        <div class="inp-group">
+            <div class="input-group-header bdr">Parameter</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">answers</div>
+            <input role="value" value='{"2":0,"3":1,"4":1,"6":0,"7":1}'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>
@@ -331,7 +347,7 @@ $loading = '<div class="sk-fading-circle loading">
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
             <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
-            <input role="value" value='1234567890'/>
+            <input role="value" value='15682101120'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>
