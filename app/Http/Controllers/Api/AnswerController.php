@@ -45,7 +45,7 @@ class AnswerController extends Controller
             $results = Session::where("session_id",$session["session_id"])->get();
             $returnSession = [];
             foreach ($results as $result){
-                $returnSession[] = ["session_id"=>$result["session_id"],"answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"],"timestamp"=>$this->asDateTime($result["created_at"])];
+                $returnSession[] = ["question_id"=>$result["question_id"],"session_id"=>$result["session_id"],"answer"=>$result["answer"],"correct_answer"=>$result["real_answer"],"time"=>$result["created_at"],"timestamp"=>$this->asDateTime($result["created_at"])];
             }
             $return[$session["session_id"]] = $returnSession;
         }
