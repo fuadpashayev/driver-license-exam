@@ -39,6 +39,7 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
     Route::group(['prefix' => 'answer'], function ($router) {
         Route::any('/','Api\AnswerController@answer')->name('api.answer');
         Route::any('/statistics','Api\AnswerController@statistics')->name('api.statistics');
+        Route::any('/statistics/session','Api\AnswerController@session_statistics')->name('api.statistics.session');
     });
 
 

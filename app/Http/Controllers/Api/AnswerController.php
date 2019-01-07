@@ -56,6 +56,49 @@ class AnswerController extends Controller
         return response()->json(['status'=>$status,'results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
+    public function session_statistics(Request $request){
+        $device_id = $request->device_id;
+        $session_id = $request->session_id;
+        $return = [];
+        $sessions = Session::where(["session_id"=>$session_id,"device_id"=>$device_id])->get();
+        $parent_questions = [];
+        $answers = [];
+        foreach ($sessions as $session){
+            $question_id = $session["question_id"];
+            $question = Question::find($question_id);
+            $parent_question = Question::find($question->parent_id);
+            $answers[$question_id] = $session["answer"];
+            if(!in_array($parent_question->id,$parent_questions))
+                $parent_questions[] = $parent_question->id;
+        }
+
+        foreach ($parent_questions as $parent_question){
+
+            $question = Question::where("parent_id",null)->find($parent_question);
+            $fetch_sub_questions = Question::where("parent_id",$question->id)->get();
+            $sub_questions = [];
+            foreach ($fetch_sub_questions as $fetch_sub_question){
+                $fetch_sub_question->user_answer = $answers[$fetch_sub_question->id];
+                $sub_questions[] = $fetch_sub_question;
+            }
+            $question->sub_questions = $sub_questions;
+            $return[] = $question;
+
+        }
+
+
+
+
+
+
+
+        if(count($return))
+            $status = 'successful';
+        else
+            $status = 'error';
+        return response()->json(['status'=>$status,'results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+    }
+
     protected function asDateTime($value)
     {
         return Carbon::parse($value)->timestamp;

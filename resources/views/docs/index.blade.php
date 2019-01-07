@@ -305,7 +305,7 @@ $loading = '<div class="sk-fading-circle loading">
     <h3>Answers</h3>
 
     <div class="input-group spc-inp">
-        <div class="inp-header">Answers</div>
+        <div class="inp-header">Send Answers</div>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -335,7 +335,7 @@ $loading = '<div class="sk-fading-circle loading">
     </div>
 
     <div class="input-group spc-inp">
-        <div class="inp-header">Statistics</div>
+        <div class="inp-header">Get Statistics</div>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -348,6 +348,32 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header bdr">Parameter</div>
             <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
             <input role="value" value='15682101120'/>
+        </div>
+        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
+        </button>
+        <pre class="result"></pre>
+    </div>
+
+
+    <div class="input-group spc-inp">
+        <div class="inp-header">Get statistics with questions and sub questions</div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">Method</div>
+            <input disabled value="POST "/>
+        </div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">URL</div>
+            <input role="url" value="{{route("api.statistics.session")}}"/>
+        </div>
+        <div class="inp-group">
+            <div class="input-group-header bdr">Parameter</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
+            <input role="value" value='15682101120'/>
+        </div>
+        <div class="inp-group">
+            <div class="input-group-header bdr">Parameter</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">session_id</div>
+            <input role="value" value='7xzt2l85sflmn42'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>

@@ -10,6 +10,7 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class QuestionController extends Controller
 {
+    static $sub_questions;
     public function index($type='all'){
         if($type=='all' || $type=='with_sub_questions')
             $questions = Question::where("parent_id",null)->get();
@@ -34,7 +35,7 @@ class QuestionController extends Controller
     }
 
 
-    public function show($id)
+    public static function show($id,$self=false)
     {
         $question = Question::where("parent_id",null)->find($id);
         if($question){
@@ -45,7 +46,10 @@ class QuestionController extends Controller
             $status = "error";
             $question = null;
         }
-        return response()->json(['status'=>$status,'question'=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        if(!$self)
+            return response()->json(['status'=>$status,'question'=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        else
+            return $question;
     }
 
     public function random_with_sub_questions(){
@@ -122,7 +126,7 @@ class QuestionController extends Controller
 
     }
 
-    public function sub_questions($question_id){
+    public static function sub_questions($question_id,$self=false){
         $sub_questions = Question::where("parent_id",$question_id)->get();
         if(count($sub_questions))
             $status = "success";
@@ -130,7 +134,10 @@ class QuestionController extends Controller
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'sub_questions'=>$sub_questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        if(!$self)
+            return response()->json(['status'=>$status,'sub_questions'=>$sub_questions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        else
+            return $sub_questions;
 
     }
 
