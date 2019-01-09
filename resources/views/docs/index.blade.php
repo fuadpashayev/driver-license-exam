@@ -316,18 +316,18 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">device_id</div>
-            <input role="value" value='15682101120'/>
+            <div class="input-group-header simple" contenteditable="true" placeholder="user_id" role="key">user_id</div>
+            <input role="value" value='1'/>
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">session_id</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="session_id" role="key">session_id</div>
             <input role="value" value='7xzt2l85sflmn42'/>
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="data" role="key">answers</div>
-            <input role="value" value='{"2":0,"3":1,"4":1,"6":0,"7":1}'/>
+            <div class="input-group-header simple" contenteditable="true" placeholder="answers" role="key">answers</div>
+            <input role="value" value='{"2":0,"3":1,"4":1,"6":0,"7":1,"8":1}'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>
@@ -346,8 +346,8 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
-            <input role="value" value='15682101120'/>
+            <div class="input-group-header simple" contenteditable="true" placeholder="user_id" role="key">user_id</div>
+            <input role="value" value='1'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
         </button>
@@ -367,12 +367,12 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">device_id</div>
-            <input role="value" value='15682101120'/>
+            <div class="input-group-header simple" contenteditable="true" placeholder="user_id" role="key">user_id</div>
+            <input role="value" value='1'/>
         </div>
         <div class="inp-group">
             <div class="input-group-header bdr">Parameter</div>
-            <div class="input-group-header simple" contenteditable="true" placeholder="device_id" role="key">session_id</div>
+            <div class="input-group-header simple" contenteditable="true" placeholder="session_id" role="key">session_id</div>
             <input role="value" value='7xzt2l85sflmn42'/>
         </div>
         <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test

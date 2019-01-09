@@ -16,7 +16,7 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('session_id');
-            $table->string('device_id');
+            $table->string('user_id');
             $table->unsignedInteger('question_id');
             $table->boolean('answer');
             $table->boolean('real_answer');
