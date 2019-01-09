@@ -20,6 +20,7 @@ class CreateSessionsTable extends Migration
             $table->unsignedInteger('question_id');
             $table->boolean('answer');
             $table->boolean('real_answer');
+            $table->text('question_list');
             $table->timestamps();
         });
     }

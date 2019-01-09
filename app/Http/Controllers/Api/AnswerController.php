@@ -15,11 +15,10 @@ class AnswerController extends Controller
         $session_id = (int) $request['session_id'];
         $user_id = (int)$request['user_id'];
         $answers = json_decode($request['answers'],1);
-        $question_list = json_decode($request['question_list'],1);
+        $question_list = $request['question_list'];
         $return = [];
 
-        foreach ($question_list as $question_id){
-            $answer = $answers[$question_id]?$answers[$question_id]:null;
+        foreach ($answers as $question_id => $answer){
             $question_id = (int) $question_id;
             $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id,"user_id"=>$user_id])->get()->count();
             if($check==0) {
@@ -31,6 +30,7 @@ class AnswerController extends Controller
                 $session->user_id = $user_id;
                 $session->answer = $answer;
                 $session->real_answer = $real_answer;
+                $session->question_list = $question_list;
                 $session->save();
                 $return[$question_id] = $answer == $real_answer;
             }
@@ -74,13 +74,14 @@ class AnswerController extends Controller
                 $parent_questions[] = $parent_question->id;
         }
 
-        foreach ($parent_questions as $parent_question){
+        $question_list = json_decode($sessions[0]['question_list'],1);
+        foreach ($question_list as $parent_question){
 
             $question = Question::where("parent_id",null)->find($parent_question);
             $fetch_sub_questions = Question::where("parent_id",$question->id)->get();
             $sub_questions = [];
             foreach ($fetch_sub_questions as $fetch_sub_question){
-                $fetch_sub_question->user_answer = $answers[$fetch_sub_question->id];
+                $fetch_sub_question->user_answer = isset($answers[$fetch_sub_question->id])?$answers[$fetch_sub_question->id]:null;
                 $sub_questions[] = $fetch_sub_question;
             }
             $question->sub_questions = $sub_questions;
