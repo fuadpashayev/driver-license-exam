@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class AnswerController extends Controller
 {
     public function answer(Request $request){
-        $session_id = (int) $request['session_id'];
+        $session_id = $request['session_id'];
         $user_id = (int)$request['user_id'];
         $answers = json_decode($request['answers'],1);
         $question_list = $request['question_list'];
