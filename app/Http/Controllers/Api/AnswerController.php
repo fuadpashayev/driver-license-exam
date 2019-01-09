@@ -12,8 +12,8 @@ use App\Http\Controllers\Controller;
 class AnswerController extends Controller
 {
     public function answer(Request $request){
-        $session_id = $request['session_id'];
-        $user_id = $request['user_id'];
+        $session_id = (int) $request['session_id'];
+        $user_id = (int)$request['user_id'];
         $answers = json_decode($request['answers'],1);
         $return = [];
 
@@ -38,7 +38,7 @@ class AnswerController extends Controller
     }
 
     public function statistics(Request $request){
-        $user_id = $request->user_id;
+        $user_id = (int) $request->user_id;
         $return = [];
         $sessions = Session::where("user_id",$user_id)->groupBy("session_id")->get();
         foreach ($sessions as $session){
@@ -57,8 +57,8 @@ class AnswerController extends Controller
     }
 
     public function session_statistics(Request $request){
-        $user_id = $request->user_id;
-        $session_id = $request->session_id;
+        $user_id = (int) $request->user_id;
+        $session_id = (int) $request->session_id;
         $return = [];
         $sessions = Session::where(["session_id"=>$session_id,"user_id"=>$user_id])->get();
         $parent_questions = [];
