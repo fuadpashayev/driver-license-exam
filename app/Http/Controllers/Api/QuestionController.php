@@ -17,7 +17,6 @@ class QuestionController extends Controller
         elseif($type=='random')
             $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
 
-        $question_list = [];
         if(count($questions)){
             $status = "success";
             if($type=='with_sub_questions'){
@@ -26,14 +25,13 @@ class QuestionController extends Controller
                     $sub_questions = Question::where("parent_id",$question->id)->get();
                     $question->sub_questions = $sub_questions;
                     $returnQuestions[] = $question;
-                    $question_list[] = $question->id;
                 }
             }else $returnQuestions = $questions;
         }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions,'question_list'=>$question_list],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
 
@@ -56,7 +54,7 @@ class QuestionController extends Controller
 
     public function random_with_sub_questions(){
         $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
-        $question_list = [];
+
         if(count($questions)){
             $status = "success";
             $returnQuestions = [];
@@ -64,13 +62,12 @@ class QuestionController extends Controller
                 $sub_questions = Question::where("parent_id",$question->id)->get();
                 $question->sub_questions = $sub_questions;
                 $returnQuestions[] = $question;
-                $question_list[] = $question->id;
             }
         }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions,'question_list'=>$question_list],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -92,7 +89,6 @@ class QuestionController extends Controller
         if($all=='random')
             $questions = $questions->limit(25)->where("parent_id",null)->inRandomOrder();
         $questions = $questions->get();
-        $question_list = [];
         if(count($questions)){
             $status = "success";
             $returnQuestions = [];
@@ -100,13 +96,12 @@ class QuestionController extends Controller
                 $sub_questions = Question::where("parent_id",$question->id)->get();
                 $question->sub_questions = $sub_questions;
                 $returnQuestions[] = $question;
-                $question_list[] = $question->id;
             }
         }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions,'question_list'=>$question_list],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -115,7 +110,6 @@ class QuestionController extends Controller
         $categories = preg_replace('/[\[\]]/i','',$categories);
         $categories = explode(',',$categories);
         $questions = Question::whereIn('category_id',$categories)->where("parent_id",null)->inRandomOrder()->limit(25)->get();
-        $question_list = [];
         if(count($questions)){
             $status = "success";
             $returnQuestions = [];
@@ -123,13 +117,12 @@ class QuestionController extends Controller
                 $sub_questions = Question::where("parent_id",$question->id)->get();
                 $question->sub_questions = $sub_questions;
                 $returnQuestions[] = $question;
-                $question_list[] = $question->id;
             }
         }else{
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions,'question_list'=>$question_list],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
