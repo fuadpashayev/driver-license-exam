@@ -15,9 +15,11 @@ class AnswerController extends Controller
         $session_id = (int) $request['session_id'];
         $user_id = (int)$request['user_id'];
         $answers = json_decode($request['answers'],1);
+        $question_list = json_decode($request['question_list'],1);
         $return = [];
 
-        foreach ($answers as $question_id => $answer){
+        foreach ($question_list as $question_id){
+            $answer = $answers[$question_id]?$answers[$question_id]:null;
             $question_id = (int) $question_id;
             $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id,"user_id"=>$user_id])->get()->count();
             if($check==0) {
