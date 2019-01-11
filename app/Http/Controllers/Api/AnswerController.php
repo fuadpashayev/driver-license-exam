@@ -60,28 +60,24 @@ class AnswerController extends Controller
 
     public function session_statistics(Request $request){
         $user_id = (int) $request->user_id;
-        $session_id = (int) $request->session_id;
+        $session_id = $request->session_id;
         $return = [];
         $sessions = Session::where(["session_id"=>$session_id,"user_id"=>$user_id])->get();
-        $parent_questions = [];
         $answers = [];
         foreach ($sessions as $session){
             $question_id = $session["question_id"];
-            $question = Question::find($question_id);
-            $parent_question = Question::find($question->parent_id);
             $answers[$question_id] = $session["answer"];
-            if(!in_array($parent_question->id,$parent_questions))
-                $parent_questions[] = $parent_question->id;
         }
 
         $question_list = json_decode($sessions[0]['question_list'],1);
         foreach ($question_list as $parent_question){
 
-            $question = Question::where("parent_id",null)->find($parent_question);
+            $question = Question::find($parent_question);
             $fetch_sub_questions = Question::where("parent_id",$question->id)->get();
             $sub_questions = [];
             foreach ($fetch_sub_questions as $fetch_sub_question){
-                $fetch_sub_question->user_answer = isset($answers[$fetch_sub_question->id])?$answers[$fetch_sub_question->id]:null;
+                @$answer = $answers[$fetch_sub_question->id];
+                $fetch_sub_question->user_answer = $answer;
                 $sub_questions[] = $fetch_sub_question;
             }
             $question->sub_questions = $sub_questions;
