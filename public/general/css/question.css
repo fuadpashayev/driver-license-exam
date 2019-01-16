@@ -1,0 +1,3 @@
+#question.data td:first-child {
+    width: calc(100% - 200px) !important;
+}
