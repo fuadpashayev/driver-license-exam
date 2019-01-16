@@ -7,10 +7,12 @@ $(document).on("click",".test",function(){
     let loading = $(this).find('.loading')
     loading.addClass("show")
     form.find('.inp-group:not(.no-filter)').each(function(){
-        let key = $(this).find("div[role=key]").text()
+        let key = $(this).find("div[role=key]").text().trim()
         let value = $(this).find("input").val()
         let type = $(this).find("div[role=key]").attr("type")
-        console.log(type)
+        if(key.match(/\|/i))
+            key = key.split("|")[0].trim()
+        console.log(key)
         if(type==='header')
             headers[key] = value
         else{
