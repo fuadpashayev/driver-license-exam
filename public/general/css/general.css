@@ -633,5 +633,6 @@ span.delete-question:hover {
 }
 
 .nav-back.second {
-    left: 110px;
+    left: 110px !important;
 }
+
