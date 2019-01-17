@@ -86,8 +86,7 @@ class QuestionController extends Controller
     public function questionsFromCategory($id,$all=25){
 
         $questions = Question::where('category_id',$id);
-        if($all=='get')
-            $questions = $questions->limit(25)->where("parent_id",null);
+        $questions = $questions->limit(25)->where("parent_id",null);
         $questions = $questions->get();
         if(count($questions)){
             $status = "success";

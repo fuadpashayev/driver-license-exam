@@ -147,21 +147,6 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">Fetch all questions from specific category</div>
-            <div class="inp-group no-filter">
-                <div class="input-group-header bdr">Method</div>
-                <input disabled value="POST / GET"/>
-            </div>
-            <div class="inp-group no-filter">
-                <div class="input-group-header">URL</div>
-                <input role="url" value="{{route("api.category.questions",['id'=>1])}}"/>
-            </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
-            <pre class="result"></pre>
-        </div>
-
-        <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 questions from specific category</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
@@ -169,7 +154,7 @@ $loading = '<div class="sk-fading-circle loading">
             </div>
             <div class="inp-group no-filter">
                 <div class="input-group-header">URL</div>
-                <input role="url" value="{{route("api.category.questions.get",['id'=>1,'get'=>'get'])}}"/>
+                <input role="url" value="{{route("api.category.questions",['id'=>1])}}"/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>

@@ -33,7 +33,6 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
         Route::any('/questions','Api\QuestionController@questionsFromCategories')->name('api.categories.questions');
         Route::any('/','Api\QuestionController@categoryAll')->name('api.categories.all');
         Route::any('/{id}','Api\QuestionController@questionsFromCategory')->name('api.category.questions');
-        Route::any('/{id}/{get}','Api\QuestionController@questionsFromCategory')->name('api.category.questions.get');
     });
 
     Route::group(['prefix' => 'answer'], function ($router) {
