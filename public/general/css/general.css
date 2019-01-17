@@ -535,7 +535,7 @@ span#add-question:hover {
 #question.data td:nth-child(2){
     width: calc(100% - 615px);
 }
-#question.data td:nth-child(3){
+#question.data td:nth-child(4){
     width: 115px;
     text-align: center;
 }

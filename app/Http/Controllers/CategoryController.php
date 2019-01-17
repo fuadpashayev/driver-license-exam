@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Question;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -55,7 +56,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $questions = Question::where("parent_id",null)->where("category_id",$id)->get();
+
+        return view('category.show',['questions'=>$questions]);
     }
 
     /**
