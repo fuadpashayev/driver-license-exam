@@ -98,7 +98,7 @@
                 <span class="input-addon">
                     <i class="material-icons">audiotrack</i>
                 </span>
-                            <input name="audio[{{$child_question->id}}]" type="file" id="audio_{{$id}}" class="hidden">
+                            <input name="audio[{{$child_question->id}}]" type="file" id="audio_{{$id}}" class="hidden" role="audio">
                             <div class="file-input audio-input content-added" for="audio_{{$id}}">Upload</div>
                             <div class="preview flex">
                                 <audio controls style="display: none;" src="{{$child_question->audio_url}}">
