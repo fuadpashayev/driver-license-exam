@@ -4,7 +4,7 @@ $(document).on("click","#add-question",function(){
     let id = questionNumber+1
     let questionInput = `
         <div class="input-box-group">
-            <div class="input-group-header">Question ${id} <span class="delete-question material-icons">close</span></div>
+            <div class="input-group-header">Sub Question ${id} <span class="delete-question material-icons">close</span></div>
             <div class="input-box">
                 <span class="input-addon">
                     <i class="material-icons">subtitles</i>

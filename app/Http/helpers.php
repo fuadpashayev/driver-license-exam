@@ -55,6 +55,16 @@ function createRoute(){
     return $next;
 }
 
+function additionalCreateCheck(){
+    $route = Route::current();
+    $return = false;
+    if($route->getName()=="category.show"){
+        $category_id = $route->category;
+        $return = \route("question.createInCategory",["category_id"=>$category_id]);
+    }
+    return $return;
+
+}
 
 function routeCheck($check){
     $route = Route::currentRouteName();

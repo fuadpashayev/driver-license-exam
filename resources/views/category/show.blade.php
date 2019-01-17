@@ -19,7 +19,6 @@
                 @php
                     $child_questions = \App\Question::where("parent_id",$question->id)->count();
                     $categoryName = \App\Category::find($question->category_id)->name;
-                    $a = '';
                 @endphp
                 <tr id="{{$question->id}}">
                     <td><a class="image" href="{{asset($question->image_url)}}"><img title="{{$question->text}}" src="{{asset($question->image_url)}}"/></a></td>

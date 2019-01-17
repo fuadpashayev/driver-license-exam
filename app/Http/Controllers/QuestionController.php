@@ -25,10 +25,13 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($category_id=null)
     {
         $categories = Category::all();
-        return view('question.create',['categories'=>$categories]);
+        $category = null;
+        if($category_id)
+            $category = Category::find($category_id);
+        return view('question.create',['categories'=>$categories,'category'=>$category]);
     }
 
     /**

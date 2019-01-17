@@ -33,6 +33,7 @@ Route::group(["middleware" => "login"], function () {
     Route::resource('category','CategoryController');
     Route::resource('user','UserController');
     Route::resource('setting','SettingsController');
+    Route::get('question/create/{id}','QuestionController@create')->name('question.createInCategory');
 
 
 });

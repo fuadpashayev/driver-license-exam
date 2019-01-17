@@ -47,18 +47,33 @@
                 <span class="input-addon">
                     <i class="material-icons">dns</i>
                 </span>
-                    <div class="dropdown-select">
-                        <div class="select">
-                            <span>Category</span>
-                            <i class="fa fa-chevron-left"></i>
+
+                    @if($category)
+                        <div class="dropdown-not">
+                            <div class="select">
+                                <span>{{$category->name}}</span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <input type="hidden" name="category" value="{{$category->id}}">
                         </div>
-                        <input type="hidden" name="category" value="">
-                        <ul class="dropdown-menu-select">
-                            @foreach($categories as $category)
-                                <li id="{{$category->id}}">{{$category->name}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    @else
+                        <div class="dropdown-select">
+                            <div class="select">
+                                <span>Category</span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <input type="hidden" name="category" value="">
+                            <ul class="dropdown-menu-select">
+                                @foreach($categories as $category)
+                                    <li id="{{$category->id}}">{{$category->name}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+
+
+
                 </div>
             </div>
 

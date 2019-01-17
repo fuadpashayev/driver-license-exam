@@ -63,6 +63,9 @@
                 @if(createRoute())
                     <div class="nav-back"><a href="{{createRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add</button></a></div>
                 @endif
+                @if(additionalCreateCheck())
+                    <div class="nav-back second"><a href="{{additionalCreateCheck()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add Question</button></a></div>
+                @endif
                 <div id="spot-break"></div>
                 <div class="container">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
