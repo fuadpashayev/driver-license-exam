@@ -162,14 +162,14 @@ $loading = '<div class="sk-fading-circle loading">
         </div>
 
         <div class="input-group spc-inp">
-            <div class="inp-header">Fetch 25 random questions from specific category</div>
+            <div class="inp-header">Fetch 25 questions from specific category</div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
             </div>
             <div class="inp-group no-filter">
                 <div class="input-group-header">URL</div>
-                <input role="url" value="{{route("api.category.questions.random",['id'=>1,'random'=>'random'])}}"/>
+                <input role="url" value="{{route("api.category.questions.get",['id'=>1,'get'=>'get'])}}"/>
             </div>
             <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
             </button>
