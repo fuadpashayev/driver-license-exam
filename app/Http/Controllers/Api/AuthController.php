@@ -59,7 +59,15 @@ class AuthController extends Controller
    */
   public function me()
   {
-      return response()->json(['status'=>'success',auth('api')->user()]);
+      $user = auth('api')->user();
+
+      $data = [
+          "status"=>"success",
+          "id"=>$user->id,
+          "name"=>$user->name,
+          "email"=>$user->email,
+      ];
+      return response()->json($data,200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
   }
 
   /**
@@ -71,7 +79,7 @@ class AuthController extends Controller
   {
       auth('api')->logout();
 
-      return response()->json(['status'=>'success','message' => 'Successfully logged out']);
+      return response()->json(['status'=>'success','message' => 'Successfully logged out'],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
   }
 
   /**
@@ -102,7 +110,7 @@ class AuthController extends Controller
           'access_token' => $token,
           'token_type' => 'bearer',
           'expires_in' => auth('api')->factory()->getTTL() * 60
-      ]);
+      ],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
   }
 
 
