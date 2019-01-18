@@ -22,6 +22,7 @@ $loading = '<div class="sk-fading-circle loading">
         <h3>Authentication</h3>
         <div class="input-group spc-inp">
             <div class="inp-header">Login</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST"/>
@@ -40,8 +41,7 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header simple" contenteditable="true" placeholder="password" role="key">password</div>
                 <input role="value" value="password"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
+
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -71,6 +71,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Register</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST"/>
@@ -99,7 +100,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header simple" contenteditable="true" placeholder="password_confirmation" role="key">password_confirmation</div>
                 <input value="password"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test</button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -132,6 +132,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch profile data</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -145,8 +146,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header simple" contenteditable="true" placeholder="Header" role="key" type="header">Authorization</div>
                 <input role="value" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU0MjUzMjI5NywiZXhwIjoxNTQyNTM1ODk3LCJuYmYiOjE1NDI1MzIyOTcsImp0aSI6IjZkc3hJdFltYllaOVRrZmEiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.1zXUa6kXqXT8Vr-IWZSJCmIbdidW7zTakb1Y3dE2oLA"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -171,6 +170,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Logout</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -184,8 +184,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header simple" contenteditable="true" placeholder="Header" role="key" type="header">Authorization</div>
                 <input role="value" value="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU0MjUzMjI5NywiZXhwIjoxNTQyNTM1ODk3LCJuYmYiOjE1NDI1MzIyOTcsImp0aSI6IjZkc3hJdFltYllaOVRrZmEiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.1zXUa6kXqXT8Vr-IWZSJCmIbdidW7zTakb1Y3dE2oLA"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -220,6 +218,7 @@ $loading = '<div class="sk-fading-circle loading">
         <h3>Category</h3>
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch all categories</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -228,8 +227,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.categories.all")}}"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -275,6 +272,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 questions from specific category</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -283,8 +281,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header">URL</div>
                 <input role="url" value="{{route("api.category.questions",['id'=>1])}}"/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -347,6 +343,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 random questions from several categories</div>
+            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -360,8 +357,6 @@ $loading = '<div class="sk-fading-circle loading">
                 <div class="input-group-header simple" contenteditable="true" placeholder="categories" role="key">categories</div>
                 <input role="value" value='[1,3,5]'/>
             </div>
-            <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-            </button>
             <pre class="result"></pre>
             <div class="sample sample-success">
                 <div class="sample-header">Success Example</div>
@@ -436,6 +431,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch all questions</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -444,8 +440,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.questions.all")}}"/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -506,6 +500,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch all questions with sub questions</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -514,8 +509,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.questions.with_sub_questions",['with_sub_questions'=>'with_sub_questions'])}}"/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -578,6 +571,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 25 random questions</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -586,8 +580,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.questions.random",['random'=>'random'])}}"/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -648,6 +640,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 25 random questions with sub questions</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -656,8 +649,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.questions.random.with_sub_questions")}}"/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -720,6 +711,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 1 specific question data</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -728,8 +720,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header">URL</div>
             <input role="url" value="{{route("api.question",['id'=>1])}}"/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -796,6 +786,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Send Answers</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -824,8 +815,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header simple" contenteditable="true" placeholder="answers" role="key">answers</div>
             <input role="value" value='{"2":0,"3":1,"4":1,"6":0,"7":1,"8":1}'/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -855,6 +844,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Get Statistics</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -868,8 +858,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header simple" contenteditable="true" placeholder="user_id" role="key">user_id | device_id</div>
             <input role="value" value='1'/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
@@ -937,6 +925,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Get statistics with questions and sub questions</div>
+        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -955,8 +944,6 @@ $loading = '<div class="sk-fading-circle loading">
             <div class="input-group-header simple" contenteditable="true" placeholder="session_id" role="key">session_id</div>
             <input role="value" value='7xzt2l85sflmn42'/>
         </div>
-        <button class="btn btn-primary col-12 no-radius test">{!!$loading!!} Test
-        </button>
         <pre class="result"></pre>
         <div class="sample sample-success">
             <div class="sample-header">Success Example</div>
