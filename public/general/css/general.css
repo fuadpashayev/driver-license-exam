@@ -544,18 +544,19 @@ span#add-question:hover {
 }
 
 #category.data td:first-child{
-    width: 200px;
+    width: 100px;
+    text-align: center;
 }
+
 #category.data td:nth-child(2){
-    width: 50px;
+    width: calc((100% - 100px) / 2);
+}
+#category.data td:nth-child(3) {
+    width: calc(100% / 8);
     text-align: center;
 }
-#category.data td:nth-child(3){
-    width: 40px;
-    text-align: center;
-}
-#category.data td:last-child{
-    width: 200px;
+#category.data td:last-child {
+    width: 253px;
 }
 
 #spot-break {

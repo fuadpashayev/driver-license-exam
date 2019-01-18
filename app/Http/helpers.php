@@ -75,3 +75,13 @@ function isAdmin(){
     $roles = Auth::user()->roles[0]->name;
     return $roles=='admin';
 }
+
+function settings(){
+    $settings = \App\Settings::find(1);
+    return $settings;
+}
+
+function site_url(){
+    $site_url = \App\Settings::find(1)->url;
+    return $site_url;
+}

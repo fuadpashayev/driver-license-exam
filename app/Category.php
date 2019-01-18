@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'name',
+        'name','image_url'
     ];
     public function questions(){
         return $this->hasMany('App\Question');
