@@ -38,7 +38,7 @@ class QuestionController extends Controller
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
 
@@ -61,7 +61,7 @@ class QuestionController extends Controller
             $question = null;
         }
         if(!$self)
-            return response()->json(['status'=>$status,'question'=>$question],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'question'=>$question],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
         else
             return $question;
     }
@@ -88,7 +88,7 @@ class QuestionController extends Controller
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -106,7 +106,7 @@ class QuestionController extends Controller
             $status = "error";
             $categories = null;
         }
-        return response()->json(['status'=>$status,'categories'=>$returnCategories],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'categories'=>$returnCategories],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function questionsFromCategory($id,$all=25){
@@ -133,7 +133,7 @@ class QuestionController extends Controller
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -161,7 +161,7 @@ class QuestionController extends Controller
             $status = "error";
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -180,7 +180,7 @@ class QuestionController extends Controller
             $questions = null;
         }
         if(!$self)
-            return response()->json(['status'=>$status,'sub_questions'=>$returnSubQuestions],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'sub_questions'=>$returnSubQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
         else
             return $sub_questions;
 
