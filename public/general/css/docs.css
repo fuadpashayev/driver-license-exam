@@ -70,7 +70,7 @@
     border-bottom: 0;
 }
 
-.result {
+.result,.sample-result {
     position: relative;
     display: none;
     width: 100%;
@@ -84,6 +84,35 @@
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
+
+.sample-result {
+    display: block !important;
+    margin-bottom: 0px;
+}
+
+.sample {
+    width: 100%;
+    padding: 5px;
+}
+.sample-success {
+    background: #8aff8a38;
+}
+.sample-error {
+    background: #ff979738;
+}
+.sample-header {
+    background: #4e5d6b;
+    color: #fff;
+    padding: 10px;
+}
+
+.sample-success .sample-header{
+    background: #84c78d;
+}
+
+.sample-error .sample-header{
+    background: #c78484;
 }
 
 .bdr{

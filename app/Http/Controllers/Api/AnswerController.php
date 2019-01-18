@@ -18,9 +18,7 @@ class AnswerController extends Controller
         $answers = json_decode($request['answers'],1);
         $question_list = $request['question_list'];
         $return = [];
-
         foreach ($answers as $question_id => $answer){
-            $question_id = (int) $question_id;
             $check = Session::where(["question_id"=>$question_id,"session_id"=>$session_id]);
             if($user_id)
                 $check = $check->where("user_id",$user_id);
@@ -29,6 +27,7 @@ class AnswerController extends Controller
             $check = $check->get()->count();
             if($check==0) {
                 $question = Question::find($question_id);
+                //dd($question_id);
                 $real_answer = $question->answer;
                 $session = new Session;
                 $session->session_id = $session_id;
@@ -40,10 +39,15 @@ class AnswerController extends Controller
                 $session->question_list = $question_list;
                 $session->save();
                 $return[$question_id] = $answer == $real_answer;
+                $status = 'success';
+                $message = 'Answers are sended to database successfully';
+            }else{
+                $status = 'error';
+                $message = 'These answers exist on database';
             }
         }
 
-        return response()->json(['results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'results'=>$return],200,[],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function statistics(Request $request){
@@ -87,21 +91,24 @@ class AnswerController extends Controller
             $question_id = $session["question_id"];
             $answers[$question_id] = $session["answer"];
         }
+        if(isset($sessions[0])) {
+            $question_list = json_decode($sessions[0]['question_list'], 1);
+            foreach ($question_list as $parent_question) {
 
-        $question_list = json_decode($sessions[0]['question_list'],1);
-        foreach ($question_list as $parent_question){
+                $question = Question::find($parent_question);
+                $fetch_sub_questions = Question::where("parent_id", $question->id)->get();
+                $sub_questions = [];
+                foreach ($fetch_sub_questions as $fetch_sub_question) {
+                    @$answer = $answers[$fetch_sub_question->id];
+                    $fetch_sub_question->user_answer = $answer;
+                    $sub_questions[] = $fetch_sub_question;
+                }
+                $question->sub_questions = $sub_questions;
+                $return[] = $question;
 
-            $question = Question::find($parent_question);
-            $fetch_sub_questions = Question::where("parent_id",$question->id)->get();
-            $sub_questions = [];
-            foreach ($fetch_sub_questions as $fetch_sub_question){
-                @$answer = $answers[$fetch_sub_question->id];
-                $fetch_sub_question->user_answer = $answer;
-                $sub_questions[] = $fetch_sub_question;
             }
-            $question->sub_questions = $sub_questions;
-            $return[] = $question;
-
+        }else{
+            $return = [];
         }
 
         if(count($return))
