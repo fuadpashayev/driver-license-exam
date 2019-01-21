@@ -637,3 +637,23 @@ span.delete-question:hover {
     left: 110px !important;
 }
 
+.sample-success .sample-result::-webkit-scrollbar-track {
+    background: #fff0;
+}
+
+.sample-success .sample-result::-webkit-scrollbar-thumb {
+    background: #84c78d;
+}
+.sample-success .sample-result::-webkit-scrollbar-thumb:hover {
+    background: #84c78d;
+}
+
+.sample-error .sample-result::-webkit-scrollbar-track {
+    background: #fff0;
+}
+.sample-error .sample-result::-webkit-scrollbar-thumb {
+    background: #c78484;
+}
+.sample-error .sample-result::-webkit-scrollbar-thumb:hover {
+    background: #c78484;
+}

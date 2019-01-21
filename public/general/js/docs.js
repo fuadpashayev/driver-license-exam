@@ -12,7 +12,6 @@ $(document).on("click",".test",function(){
         let type = $(this).find("div[role=key]").attr("type")
         if(key.match(/\|/i))
             key = key.split("|")[0].trim()
-        console.log(key)
         if(type==='header')
             headers[key] = value
         else{
@@ -46,10 +45,14 @@ $.fn.flex = function(){
 }
 function loader(type="open"){
     var loader = $("#loader:visible").length
-    if(loader || type=="close")
-      $("#loader").hide()
-    else
-      $("#loader").flex()
+    var play = $(".test-play")
+    if(loader || type=="close") {
+        $("#loader").hide()
+        play.fadeIn()
+    }else {
+        $("#loader").flex()
+        play.fadeOut()
+    }
   }
 var loaded_url
 $(document).on("click","a",function(e){

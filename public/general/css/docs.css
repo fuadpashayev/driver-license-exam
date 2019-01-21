@@ -150,3 +150,35 @@ h3 {
 div#authentication {
     margin-top: 0;
 }
+
+
+
+.inp-header-right {
+    position: absolute;
+    right: 5px;
+    width: 110px;
+    background: #3490dc;
+    border: 0 !important;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    top: 4px;
+    margin: auto;
+    height: 27px;
+    -webkit-transition: 220ms;
+    -moz-transition: 220ms;
+    -ms-transition: 220ms;
+    -o-transition: 220ms;
+    transition: 220ms;
+    outline: none !important;
+}
+
+.test:hover{
+    background: #227dc7;
+}
+
+.test-play {
+    vertical-align: -7px;
+    margin-right: 2px;
+    margin-left: -8px;
+}

@@ -17,12 +17,14 @@ $loading = '<div class="sk-fading-circle loading">
         <div class="sk-circle10 sk-circle"></div>
         <div class="sk-circle11 sk-circle"></div>
         <div class="sk-circle12 sk-circle"></div></div>';
+
+$play = '<i class="material-icons test-play">play_arrow</i>';
 @endphp
     <div class="container-fluid col-8" id="authentication">
         <h3>Authentication</h3>
         <div class="input-group spc-inp">
             <div class="inp-header">Login</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST"/>
@@ -71,7 +73,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Register</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST"/>
@@ -132,7 +134,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch profile data</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -170,7 +172,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Logout</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -218,7 +220,7 @@ $loading = '<div class="sk-fading-circle loading">
         <h3>Category</h3>
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch all categories</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -272,7 +274,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 questions from specific category</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -343,7 +345,7 @@ $loading = '<div class="sk-fading-circle loading">
 
         <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 random questions from several categories</div>
-            <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
@@ -431,7 +433,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch all questions</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -500,7 +502,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch all questions with sub questions</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -571,7 +573,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 25 random questions</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -640,7 +642,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 25 random questions with sub questions</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -711,7 +713,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Fetch 1 specific question data</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST / GET"/>
@@ -786,7 +788,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Send Answers</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -844,7 +846,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Get Statistics</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
@@ -925,7 +927,7 @@ $loading = '<div class="sk-fading-circle loading">
 
     <div class="input-group spc-inp">
         <div class="inp-header">Get statistics with questions and sub questions</div>
-        <button class="inp-header-right btn btn-primary no-radius test">{!!$loading!!} Test</button>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
         <div class="inp-group no-filter">
             <div class="input-group-header bdr">Method</div>
             <input disabled value="POST "/>
