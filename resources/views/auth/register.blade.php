@@ -77,3 +77,7 @@
     </div>
 </div>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{asset('general/css/register.css')}}"/>
+@endsection

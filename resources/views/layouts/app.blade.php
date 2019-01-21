@@ -49,6 +49,7 @@
             @if(isAdmin())
                 <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
                 <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
+                <a href="{{route('plan.index')}}"><div class="nav-menu {{routeCheck('plan')?'active':null}}"><i class="material-icons">attach_money</i> Tariff Plans</div></a>
             @endif
             <div class="nav-header">General</div>
             <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
@@ -56,52 +57,54 @@
         </div>
         @endauth
         <div id="app" style="@guest width:100%; @endguest">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-                @if(previousRoute())
-                <div class="nav-back"><a href="{{previousRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">chevron_left</i> Back</button></a></div>
-                @endif
-                @if(createRoute())
-                    <div class="nav-back"><a href="{{createRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add</button></a></div>
-                @endif
-                @if(additionalCreateCheck())
-                    <div class="nav-back second"><a href="{{additionalCreateCheck()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add Question</button></a></div>
-                @endif
-                <div id="spot-break"></div>
-                <div class="container">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav navbar-right">
-                            @guest
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    @if (Route::has('register'))
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </li>
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+            @if(!routeCheck('pricing'))
+                <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                    @if(previousRoute())
+                    <div class="nav-back"><a href="{{previousRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">chevron_left</i> Back</button></a></div>
+                    @endif
+                    @if(createRoute())
+                        <div class="nav-back"><a href="{{createRoute()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add</button></a></div>
+                    @endif
+                    @if(additionalCreateCheck())
+                        <div class="nav-back second"><a href="{{additionalCreateCheck()}}"><button class="btn btn-primary btn-iconed"><i class="material-icons">add</i> Add Question</button></a></div>
+                    @endif
+                    <div id="spot-break"></div>
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav navbar-right">
+                                @guest
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        @if (Route::has('register'))
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        @endif
+                                    </li>
+                                @else
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                @endguest
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            @endif
 
             <main class="py-4">
                 <div id="ajax-content">

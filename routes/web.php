@@ -21,7 +21,8 @@ Route::group(["middleware" => "web"], function () {
     Route::get('docs/auth','DocsController@auth')->name('docs.auth');
     Route::get('docs/category','DocsController@category')->name('docs.category');
     Route::get('docs/question','DocsController@question')->name('docs.question');
-    
+
+    Route::get('pricing','PricingController@index')->name('pricing.index');
 });
 
 
@@ -33,6 +34,7 @@ Route::group(["middleware" => "login"], function () {
     Route::resource('category','CategoryController');
     Route::resource('user','UserController');
     Route::resource('setting','SettingsController');
+    Route::resource('plan','PlanController');
     Route::get('question/create/{id}','QuestionController@create')->name('question.createInCategory');
 
 

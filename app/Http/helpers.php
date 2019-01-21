@@ -41,7 +41,7 @@ function createRoute(){
     }
     $id='';
     $next = null;
-    $exceptions = ['login','home','setting'];
+    $exceptions = ['login','home','setting','pricing','register'];
     if(!in_array($route,$exceptions)){
     foreach(Route::current()->parameters() as $router=>$id_param) { $id = $id_param; }
     switch ($route){
