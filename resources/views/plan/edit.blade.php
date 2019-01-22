@@ -46,7 +46,7 @@
                 </span>
                 <select name="information[]" class="selectpicker" multiple>
                     @foreach($infos as $info)
-                        <option value="{{$info->name}}" @if(in_array($info->name,json_decode($plan->information,1))) selected @endif>{{$info->name}}</option>
+                        <option value="{{$info->id}}" @if(in_array($info->id,json_decode($plan->information,1))) selected @endif>{{$info->name}}</option>
                     @endforeach
                 </select>
             </div>

@@ -16,6 +16,10 @@ class PlanController extends Controller
     public function index()
     {
         $plans = Plan::all();
+        $infos = [];
+
+
+
         return view('plan.index',['plans'=>$plans]);
     }
 
@@ -119,9 +123,6 @@ class PlanController extends Controller
     {
         $plan = Plan::find($id);
         $plan->delete();
-        if($plan)
-            echo 'ok';
-        else
-            echo'no';
+        echo $plan?'ok':'no';
     }
 }

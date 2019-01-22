@@ -35,6 +35,7 @@ Route::group(["middleware" => "login"], function () {
     Route::resource('user','UserController');
     Route::resource('setting','SettingsController');
     Route::resource('plan','PlanController');
+    Route::resource('plan_information','PlanInformationController');
     Route::get('question/create/{id}','QuestionController@create')->name('question.createInCategory');
 
 

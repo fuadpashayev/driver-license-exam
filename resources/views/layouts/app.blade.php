@@ -50,11 +50,15 @@
                     @if(isAdmin())
                         <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
                         <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
-                        <a href="{{route('plan.index')}}"><div class="nav-menu {{routeCheck('plan')?'active':null}}"><i class="material-icons">attach_money</i> Tariff Plans</div></a>
                     @endif
                     <div class="nav-header">General</div>
                     <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
                     <a href="{{route('question.index')}}"><div class="nav-menu {{routeCheck('question')?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
+                    @if(isAdmin())
+                        <div class="nav-header">Tariff Plans</div>
+                        <a href="{{route('plan.index')}}"><div class="nav-menu {{routeCheck('plan')?'active':null}}"><i class="material-icons">attach_money</i> Tariff Plans</div></a>
+                        <a href="{{route('plan_information.index')}}"><div class="nav-menu {{routeCheck('plan_information')?'active':null}}"><i class="material-icons">monetization_on</i> Tariff Plans Information</div></a>
+                    @endif
                 </div>
             @else
                 <style>

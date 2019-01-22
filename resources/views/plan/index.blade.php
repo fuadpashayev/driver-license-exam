@@ -23,9 +23,13 @@
                     <td>{{$plan->currency}}</td>
                     <td>{{$plan->period}}</td>
                     <td>
-                       @foreach(json_decode($plan->information,1) as $info)
-                           <li>{{$info}}</li>
-                       @endforeach
+                        @php $infos = json_decode($plan->information,1); @endphp
+                        @foreach($infos as $info)
+                            @php
+                                $info = \App\PlanInformation::find($info);
+                            @endphp
+                            <li>{{$info->name}}</li>
+                        @endforeach
                     </td>
                     <td><a href="{{route('plan.edit',$plan->id)}}"><button class="btn btn-primary edit"><i class="material-icons">edit</i> Edit</button></a> <a href="#"><button class="btn btn-danger delete" data-target="#deleteModal" role="delete" route="{{route('plan.destroy',['id'=>$plan->id])}}"><i class="material-icons">delete</i> Delete</button></a></td>
                 </tr>

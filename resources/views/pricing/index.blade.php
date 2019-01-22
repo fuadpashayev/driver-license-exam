@@ -16,7 +16,7 @@
                                 <hr>
                                 <ul class="fa-ul">
                                     @foreach($infos as $info)
-                                        @if(in_array($info->name,json_decode($plan->information,1)))
+                                        @if(in_array($info->id,json_decode($plan->information,1)))
                                             <li><span class="fa-li"><i class="material-icons">check</i></span>{{$info->name}}</li>
                                         @else
                                             <li class="text-muted"><span class="fa-li"><i class="material-icons">close</i></span>{{$info->name}}</li>

@@ -45,7 +45,7 @@
                 </span>
                 <select name="information[]" class="selectpicker" multiple>
                     @foreach($infos as $info)
-                        <option value="{{$info->name}}">{{$info->name}}</option>
+                        <option value="{{$info->id}}">{{$info->name}}</option>
                     @endforeach
                 </select>
             </div>
