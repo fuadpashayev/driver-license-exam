@@ -92,6 +92,14 @@ li.text-muted{
 .col-lg-4 {
     margin-bottom: 30px;
 }
+html,body,#app,#wrapper{
+    height: 100% !important;
+}
+#app{
+    background: #9CECFB;
+    background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+    background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+}
 
 
 @media (min-width: 992px) {
