@@ -1,0 +1,14 @@
+.input-box .bootstrap-select{
+    width: 100% !important;
+    border: 1px solid #d0d0d0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+
+.input-box .bootstrap-select .btn-light{
+    background-color: #fff !important;
+    border:0 !important;
+    outline: none !important;
+}

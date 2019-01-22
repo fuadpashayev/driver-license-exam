@@ -22,22 +22,36 @@
                 <span class="input-addon">
                     <i class="material-icons">attach_money</i>
                 </span>
-                <input name="email" required="" placeholder="Price">
+                <input name="price" required="" placeholder="Price">
             </div>
 
             <div class="input-box">
                 <span class="input-addon">
-                    <i class="material-icons">group_work</i>
+                    <i class="material-icons">monetization_on</i>
                 </span>
-                <select class="selectpicker" multiple>
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
+                <input name="currency" required="" placeholder="Currency">
+            </div>
+
+            <div class="input-box">
+                <span class="input-addon">
+                    <i class="material-icons">today</i>
+                </span>
+                <input name="period" required="" placeholder="Period">
+            </div>
+
+            <div class="input-box">
+                <span class="input-addon">
+                    <i class="material-icons">list_alt</i>
+                </span>
+                <select name="information[]" class="selectpicker" multiple>
+                    @foreach($infos as $info)
+                        <option value="{{$info->name}}">{{$info->name}}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="input-box submit">
-                <button class="btn btn-success btn-iconed"><i class="material-icons">save</i> Add User</button>
+                <button class="btn btn-success btn-iconed"><i class="material-icons">save</i> Add Plan</button>
             </div>
 
 
@@ -54,7 +68,6 @@
 @endsection
 
 @section('js')
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.min.js"></script>
     <script src="{{asset('general/js/plan.js')}}"></script>
 @endsection

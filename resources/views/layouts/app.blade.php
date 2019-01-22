@@ -43,18 +43,26 @@
 
     <div id="wrapper">
         @auth
-        <div id="navigation">
-            <div class="nav-header">Primary</div>
-            <a href="{{route('home')}}"><div class="nav-menu {{routeCheck('home')?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
-            @if(isAdmin())
-                <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
-                <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
-                <a href="{{route('plan.index')}}"><div class="nav-menu {{routeCheck('plan')?'active':null}}"><i class="material-icons">attach_money</i> Tariff Plans</div></a>
+            @if(!routeCheck('pricing'))
+                <div id="navigation">
+                    <div class="nav-header">Primary</div>
+                    <a href="{{route('home')}}"><div class="nav-menu {{routeCheck('home')?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>
+                    @if(isAdmin())
+                        <a href="{{route('user.index')}}"><div class="nav-menu {{routeCheck('user')?'active':null}}"><i class="material-icons">people</i> Users</div></a>
+                        <a href="{{route('setting.index')}}"><div class="nav-menu {{routeCheck('setting')?'active':null}}"><i class="material-icons">settings</i> Settings</div></a>
+                        <a href="{{route('plan.index')}}"><div class="nav-menu {{routeCheck('plan')?'active':null}}"><i class="material-icons">attach_money</i> Tariff Plans</div></a>
+                    @endif
+                    <div class="nav-header">General</div>
+                    <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
+                    <a href="{{route('question.index')}}"><div class="nav-menu {{routeCheck('question')?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
+                </div>
+            @else
+                <style>
+                    #app{
+                        width: 100% !important;
+                    }
+                </style>
             @endif
-            <div class="nav-header">General</div>
-            <a href="{{route('category.index')}}"><div class="nav-menu {{routeCheck('category')?'active':null}}"><i class="material-icons">dns</i> Categories</div></a>
-            <a href="{{route('question.index')}}"><div class="nav-menu {{routeCheck('question')?'active':null}}"><i class="material-icons">assignment</i> Questions</div></a>
-        </div>
         @endauth
         <div id="app" style="@guest width:100%; @endguest">
             @if(!routeCheck('pricing'))
@@ -114,10 +122,8 @@
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="{{asset('js/lightbox.js')}}"></script>
     <script src="https:////cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="{{asset('js/select.js')}}"></script>
     <script src="{{asset('general/js/general.js')}}"></script>
     @yield('js')

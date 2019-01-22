@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>Questions</title>
+    <title>Plans</title>
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -10,8 +10,9 @@
                 <td>Name</td>
                 <td>Price</td>
                 <td>Currency</td>
-                <td>Duration</td>
+                <td>Period</td>
                 <td>Information</td>
+                <td>Options</td>
             </tr>
             </thead>
             <tbody>
@@ -20,8 +21,13 @@
                     <td>{{$plan->name}}</td>
                     <td>{{$plan->price}}</td>
                     <td>{{$plan->currency}}</td>
-                    <td>{{$plan->duration}}</td>
-                    <td>{{$plan->information}}</td>
+                    <td>{{$plan->period}}</td>
+                    <td>
+                       @foreach(json_decode($plan->information,1) as $info)
+                           <li>{{$info}}</li>
+                       @endforeach
+                    </td>
+                    <td><a href="{{route('plan.edit',$plan->id)}}"><button class="btn btn-primary edit"><i class="material-icons">edit</i> Edit</button></a> <a href="#"><button class="btn btn-danger delete" data-target="#deleteModal" role="delete" route="{{route('plan.destroy',['id'=>$plan->id])}}"><i class="material-icons">delete</i> Delete</button></a></td>
                 </tr>
             @endforeach
             </tbody>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use \App\PlanInformation;
 class CategoryTableSeeder extends Seeder
 {
     /**
@@ -11,6 +11,16 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
+        $plan_information = [
+            'Try Exam',
+            'Audio Exam',
+            'Video Exam'
+        ];
+        foreach ($plan_information as $information){
+            $plan = new PlanInformation;
+            $plan->name = $information;
+            $plan->save();
+        }
 //        factory(App\Category::class, 5)->create()->each(function ($c) {
 //            for($j = 1;$j <=5;$j++){
 //                $parent =  $c->questions()->save(factory(App\Question::class)->make());

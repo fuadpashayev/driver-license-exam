@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Plan;
+use App\PlanInformation;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -25,7 +26,8 @@ class PlanController extends Controller
      */
     public function create()
     {
-        return view('plan.create');
+        $infos = PlanInformation::all();
+        return view('plan.create',['infos'=>$infos]);
     }
 
     /**
@@ -36,7 +38,23 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required','string'],
+            'price' => ['required','integer'],
+            'currency' => ['required','string'],
+            'period' => ['required','string'],
+            'information' => ['required','array']
+        ]);
+
+        $plan = new Plan;
+        $plan->name = $request->name;
+        $plan->price = $request->price;
+        $plan->currency = $request->currency;
+        $plan->period = $request->period;
+        $plan->information = json_encode($request->information);
+        $plan->save();
+
+        return redirect()->route('plan.index');
     }
 
     /**
@@ -58,7 +76,9 @@ class PlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = Plan::find($id);
+        $infos = PlanInformation::all();
+        return view('plan.edit',['plan'=>$plan,'infos'=>$infos]);
     }
 
     /**
@@ -70,7 +90,23 @@ class PlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required','string'],
+            'price' => ['required','integer'],
+            'currency' => ['required','string'],
+            'period' => ['required','string'],
+            'information' => ['required','array']
+        ]);
+
+        $plan = Plan::find($id);
+        $plan->name = $request->name;
+        $plan->price = $request->price;
+        $plan->currency = $request->currency;
+        $plan->period = $request->period;
+        $plan->information = json_encode($request->information);
+        $plan->save();
+
+        return redirect()->route('plan.index');
     }
 
     /**
@@ -81,6 +117,11 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = Plan::find($id);
+        $plan->delete();
+        if($plan)
+            echo 'ok';
+        else
+            echo'no';
     }
 }
