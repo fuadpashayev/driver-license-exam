@@ -96,11 +96,14 @@ class AnswerController extends Controller
             foreach ($question_list as $parent_question) {
 
                 $question = Question::find($parent_question);
+                $question->image_url = site_url().$question->image_url;
+                $question->audio_url = site_url().$question->audio_url;
                 $fetch_sub_questions = Question::where("parent_id", $question->id)->get();
                 $sub_questions = [];
                 foreach ($fetch_sub_questions as $fetch_sub_question) {
                     @$answer = $answers[$fetch_sub_question->id];
                     $fetch_sub_question->user_answer = $answer;
+                    $fetch_sub_question->audio_url = site_url().$fetch_sub_question->audio_url;
                     $sub_questions[] = $fetch_sub_question;
                 }
                 $question->sub_questions = $sub_questions;
