@@ -109,7 +109,7 @@ class QuestionController extends Controller
         return response()->json(['status'=>$status,'categories'=>$returnCategories],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
-    public function questionsFromCategory($id,$all=25){
+    public function questionsFromCategory($id,$order=null){
 
         $questions = Question::where('category_id',$id);
         $questions = $questions->limit(25)->where("parent_id",null);
@@ -117,7 +117,7 @@ class QuestionController extends Controller
         if(count($questions)){
             $status = "success";
             $returnQuestions = [];
-            foreach ($questions as $question){
+            foreach ($questions as $index => $question){
                 $question->image_url = site_url().$question->image_url;
                 $question->audio_url = site_url().$question->audio_url;
                 $sub_questions = Question::where("parent_id",$question->id)->get();
@@ -129,6 +129,9 @@ class QuestionController extends Controller
                 $question->sub_questions = $returnSubQuestions;
                 $returnQuestions[] = $question;
             }
+
+            if($order!=null) $returnQuestions = $returnQuestions[$order-1];
+
         }else{
             $status = "error";
             $questions = null;

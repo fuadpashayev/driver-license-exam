@@ -344,6 +344,77 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
         </div>
 
         <div class="input-group spc-inp">
+            <div class="inp-header">Fetch question with order number from specific category</div>
+            <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
+            <div class="inp-group no-filter">
+                <div class="input-group-header bdr">Method</div>
+                <input disabled value="POST / GET"/>
+            </div>
+            <div class="inp-group no-filter">
+                <div class="input-group-header">URL</div>
+                <input role="url" value="{{route("api.category.questions",['id'=>1,'order'=>1])}}"/>
+            </div>
+            <pre class="result"></pre>
+            <div class="sample sample-success">
+                <div class="sample-header">Success Example</div>
+                <pre class="sample-result">
+{
+  "status": "success",
+  "questions": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "text": "Nihil delectus libero deleniti accusamus. Id eum repellendus nisi et. Vitae in et perferendis quasi doloremque consectetur deleniti. Ullam vel et est velit voluptas quia.",
+      "answer": null,
+      "image_url": "https://drivertest.azweb/storage/image/Uw6FNk5JmglyjCi7Pc4ySy16JyKgKVnf2vVPOo9s.jpeg",
+      "audio_url": "https://drivertest.azwebhttps://www.trafiktesten.dk/files/teoriproeve_billeder/teoriproeve_billeder_1404_voice_1_question.mp3",
+      "user_id": 1,
+      "parent_id": null,
+      "created_at": "23.11.2018 07:08:05",
+      "updated_at": "26.11.2018 14:23:23",
+      "sub_questions": [
+        {
+          "id": 2,
+          "category_id": 1,
+          "text": "Enim a vel consequatur blanditiis ut. Consequatur dignissimos repellendus nobis porro. Odio exercitationem nihil natus.",
+          "answer": 1,
+          "image_url": null,
+          "audio_url": "https://drivertest.azwebhttps://www.trafiktesten.dk/files/teoriproeve_billeder/teoriproeve_billeder_1404_voice_1_question.mp3",
+          "user_id": 1,
+          "parent_id": 1,
+          "created_at": "23.11.2018 07:08:05",
+          "updated_at": "26.11.2018 13:59:11"
+        },
+        {
+          "id": 121,
+          "category_id": 1,
+          "text": "test",
+          "answer": 1,
+          "image_url": null,
+          "audio_url": "https://drivertest.azweb/storage/audio/Xm8Jsy0XdAKvhcb5pVHxPkFc0NaE7Mfy4IuaASIv.mp3",
+          "user_id": 1,
+          "parent_id": 1,
+          "created_at": "26.11.2018 13:59:11",
+          "updated_at": "26.11.2018 13:59:11"
+        }
+      ]
+    }
+  ]
+}
+                </pre>
+            </div>
+            <div class="sample sample-error">
+                <div class="sample-header">Error Example</div>
+                <pre class="sample-result">
+{
+  "status": "error",
+  "questions": []
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class="input-group spc-inp">
             <div class="inp-header">Fetch 25 random questions from several categories</div>
             <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
             <div class="inp-group no-filter">
