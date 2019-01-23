@@ -109,8 +109,9 @@ class QuestionController extends Controller
         return response()->json(['status'=>$status,'categories'=>$returnCategories],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
-    public function questionsFromCategory($id,$order=null){
-
+    public function questionsFromCategory(Request $request){
+        $id = $request->id;
+        $order = $request->order;
         $questions = Question::where('category_id',$id);
         $questions = $questions->limit(25)->where("parent_id",null);
         $questions = $questions->get();

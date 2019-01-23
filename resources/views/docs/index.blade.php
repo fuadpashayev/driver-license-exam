@@ -351,16 +351,16 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
                 <input disabled value="POST / GET"/>
             </div>
             <div class="inp-group no-filter">
-                <div class="input-group-header">URL</div>
+                <div class="input-group-header bdr">URL</div>
                 <input role="url" value="{{route("api.category.questions",['id'=>1,'order'=>1])}}"/>
             </div>
             <div class="inp-group">
-                <div class="input-group-header">Parameter</div>
+                <div class="input-group-header bdr">Parameter</div>
                 <div class="input-group-header simple" contenteditable="true" placeholder="id" role="key">id</div>
                 <input role="value" value='1'/>
             </div>
             <div class="inp-group">
-                <div class="input-group-header">Parameter</div>
+                <div class="input-group-header bdr">Parameter</div>
                 <div class="input-group-header simple" contenteditable="true" placeholder="order" role="key">order</div>
                 <input role="value" value='1'/>
             </div>
