@@ -14,39 +14,43 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="dashboard-container">
+                <a href="{{route('user.index')}}">
+                    <div class="dashboard-menu">
+                        <div class="dashboard-menu-header">
+                            <i class="material-icons color-danger">people</i>
+                            <div>{{$counts['user']}}</div>
+                        </div>
+                        <div class="dashboard-menu-body">
+                            <i class="material-icons">bubble_chart</i> Users
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+                <a href="{{route('category.index')}}">
+                    <div class="dashboard-menu">
+                        <div class="dashboard-menu-header">
+                            <i class="material-icons color-warning">dns</i>
+                            <div>{{$counts['category']}}</div>
+                        </div>
+                        <div class="dashboard-menu-body">
+                            <i class="material-icons">bookmarks</i> Categories
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+                </a>
 
-                <div class="dashboard-menu">
-                    <div class="dashboard-menu-header">
-                        <i class="material-icons color-danger">people</i>
-                        <div>{{$counts['user']}}</div>
+                <a href="{{route('question.index')}}">
+                    <div class="dashboard-menu">
+                        <div class="dashboard-menu-header">
+                            <i class="material-icons color-info">assignment</i>
+                            <div>{{$counts['question']}}</div>
+                        </div>
+                        <div class="dashboard-menu-body">
+                            <i class="material-icons">timeline</i> Questions
+                        </div>
+                        <div class="overlay"></div>
                     </div>
-                    <div class="dashboard-menu-body">
-                        <i class="material-icons">bubble_chart</i> Users
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-
-                <div class="dashboard-menu">
-                    <div class="dashboard-menu-header">
-                        <i class="material-icons color-warning">dns</i>
-                        <div>{{$counts['category']}}</div>
-                    </div>
-                    <div class="dashboard-menu-body">
-                        <i class="material-icons">bookmarks</i> Categories
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-
-                <div class="dashboard-menu">
-                    <div class="dashboard-menu-header">
-                        <i class="material-icons color-info">assignment</i>
-                        <div>{{$counts['question']}}</div>
-                    </div>
-                    <div class="dashboard-menu-body">
-                        <i class="material-icons">timeline</i> Questions
-                    </div>
-                    <div class="overlay"></div>
-                </div>
+                </a>
 
                 <div class="dashboard-menu">
                     <div class="dashboard-menu-header">
