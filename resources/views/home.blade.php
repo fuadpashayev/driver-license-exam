@@ -9,6 +9,9 @@
     #spot-break{
         display: none !important;
     }
+    .dashboard-container a{
+        color: #333 !important;
+    }
 </style>
 <div class="container-fluid">
     <div class="row justify-content-center">
