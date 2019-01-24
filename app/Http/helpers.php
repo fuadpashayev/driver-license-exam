@@ -68,7 +68,8 @@ function additionalCreateCheck(){
 
 function routeCheck($check){
     $route = Route::currentRouteName();
-    return preg_match("/$check/im",$route);
+    $route = explode('.',$route)[0];
+    return $check===$route;
 }
 
 function isAdmin(){
