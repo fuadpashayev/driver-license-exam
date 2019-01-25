@@ -352,7 +352,7 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
             </div>
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">URL</div>
-                <input role="url" value="{{route("api.category.questions",['id'=>1,'order'=>1])}}"/>
+                <input role="url" value="{{route("api.category.questions")}}"/>
             </div>
             <div class="inp-group">
                 <div class="input-group-header bdr">Parameter</div>
