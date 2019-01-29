@@ -249,16 +249,7 @@ class AnswerController extends Controller
 <td align=\'center\'>12.05.2018</td>
 <td align=\'center\'>22.05.2019</td>
 </tr>
-<tr>
-<td align=\'left\'>NƏCƏFOV</td>
-<td align=\'left\'>MURAD</td>
-<td align=\'left\'>ƏNVƏR</td>
-<td align = \'center\'>90NZ477</td>
-<td align = \'center\'>MMX6859281</td>
-<td align = \'center\'>4</td>
-<td align=\'center\'>12.05.2018</td>
-<td align=\'center\'>22.05.2019</td>
-</tr>
+
 <tr>
 <td colspan=\'5\' align=\'right\'><b>Cəmi:  </b></td>
 <td align=\'center\'><b>3</b></td>
