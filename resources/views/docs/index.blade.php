@@ -112,7 +112,7 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
   "id": 1,
   "name": "Admin",
   "email": "admin@app.com",
-  "payment_type": "free",
+  "payment_type": "freee",
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIU...",
   "token_type": "bearer",
   "expires_in": 3600
@@ -141,6 +141,7 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
                 <div class="input-group-header bdr">Method</div>
                 <input disabled value="POST / GET"/>
             </div>
+
             <div class="inp-group no-filter">
                 <div class="input-group-header bdr">URL</div>
                 <input role="url" value="{{route("api.profile")}}"/>
