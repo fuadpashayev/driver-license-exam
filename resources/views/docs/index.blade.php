@@ -145,7 +145,6 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
                 <div class="input-group-header bdr">URL</div>
                 <input role="url" value="{{route("api.profile")}}"/>
             </div>
-            a
             <div class="inp-group">
                 <div class="input-group-header">Header</div>
                 <div class="input-group-header simple" contenteditable="true" placeholder="Header" role="key" type="header">Authorization</div>
