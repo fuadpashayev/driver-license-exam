@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPaymentTypeToUsers extends Migration
+class AddPaymentToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,6 @@ class AddPaymentTypeToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('payment_type')->default("free");
-            $a = 3;
         });
     }
 
