@@ -53,7 +53,8 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
   "id": 1,
   "name": "Admin",
   "email": "admin@app.com",
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciO....",
+  "payment_type": "free",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIU...",
   "token_type": "bearer",
   "expires_in": 3600
 }
@@ -108,10 +109,11 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
                 <pre class="sample-result">
 {
   "status": "success",
-  "id": 4,
-  "name": "Test",
-  "email": "test@app.com",
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI...",
+  "id": 1,
+  "name": "Admin",
+  "email": "admin@app.com",
+  "payment_type": "free",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIU...",
   "token_type": "bearer",
   "expires_in": 3600
 }
@@ -156,7 +158,8 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
   "status": "success",
   "id": 1,
   "name": "Admin",
-  "email": "admin@app.com"
+  "email": "admin@app.com",
+  "payment_type": "free"
 }
                 </pre>
             </div>

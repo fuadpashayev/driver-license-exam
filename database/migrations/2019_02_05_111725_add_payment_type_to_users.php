@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImageUrlToCategories extends Migration
+class AddPaymentTypeToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImageUrlToCategories extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('image_url');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('payment_type')->default("free");
         });
     }
 
@@ -25,8 +25,8 @@ class AddImageUrlToCategories extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function($table) {
-            $table->dropColumn('image_url');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn("payment_type");
         });
     }
 }

@@ -125,45 +125,27 @@ class AnswerController extends Controller
         $text = '
         
 
-
-
-
-
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-    
-        
-        
-        
-        
-            
-        
-    
-    
-    <head>
+<html><head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Security-Policy" content="script-src \'self\' https://www.google.com/recaptcha/api.js https://www.gstatic.com/ http://www.google-analytics.com/ \'unsafe-inline\'; object-src \'self\'">
         <title></title>
-        <script type="text/javascript" src="js/js1.js"></script>
+        <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="js/js1.js"></script>
         <script type="text/javascript" src="js/jtabber.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <link rel="stylesheet" href="css/ctabber.css" TYPE="text/css" MEDIA="screen">
-        <link rel="stylesheet" href="css/nexcss.css" type="text/css" />
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <link rel="stylesheet" href="css/ctabber.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/nexcss.css" type="text/css">
 
     </head>
     <body>
-        <div id="popup1" class="popup_block" style="">
+        <div id="popup1" class="popup_block" style="display: block; width: 300px;  margin-top: -179px; margin-left: -190px; ">
             <a href="#" class="close" onclick="CloseWindow()"><img src="images/close_pop.png" class="btn_close" title="Pəncərəni bağla" alt="Close"></a>
             <table>
-                <tr>
+                <tbody><tr>
                     <td valign="middle" id="imgid"></td>
                     <td valign="middle" id="msgid"></td>
                 </tr>
-            </table>
-            <input type="button" value="Bağla" style="margin-left:220px; margin-top:5px; width:90px; height:25px;" onclick="CloseWindow()"/>
+            </tbody></table>
+            <input type="button" value="Bağla" style="margin-left:220px; margin-top:5px; width:90px; height:25px;" onclick="CloseWindow()">
         </div>
 
         <div id="fade" style="display: block;"></div>
@@ -174,9 +156,9 @@ class AnswerController extends Controller
             <tbody>
                 <tr>
                     <td align="right">
-                        <table border="0"><tr>
-                                <td><a class=\'testa\' onclick=\'document.getElementById("chg_psw").submit()\'> Şifrəni dəyiş</a><form action=\'Dispatcher\' method=\'post\' name=\'chg_psw\' id=\'chg_psw\'><input type="hidden" name="csrfPreventionFilter" id="csrfPreventionFilter" value="null"><input type="hidden" name="next.page" id="next.page" value="index.jsp?ajx=0&PagInd=4&lang=null"></form></td><td>&nbsp;<a class=\'testa\' onclick=\'document.getElementById("logout").submit()\'> Çıxış</a><form action=\'Dispatcher\' method=\'post\' name=\'logout\' id=\'logout\'><input type="hidden" name="csrfPreventionFilter" id="csrfPreventionFilter" value="null"><input type="hidden" name="next.page" id="next.page" value="index.jsp"><input type=\'hidden\' name=\'islogout\' id=\'islogout\' value=\'1\'></form></td></td>
-                            </tr></table>
+                        <table border="0"><tbody><tr>
+                                <td><a class="testa" onclick="document.getElementById(&quot;chg_psw&quot;).submit()"> Şifrəni dəyiş</a><form action="Dispatcher" method="post" name="chg_psw" id="chg_psw"><input type="hidden" name="csrfPreventionFilter" id="csrfPreventionFilter" value="null"><input type="hidden" name="next.page" id="next.page" value="index.jsp?ajx=0&amp;PagInd=4&amp;lang=null"></form></td><td>&nbsp;<a class="testa" onclick="document.getElementById(&quot;logout&quot;).submit()"> Çıxış</a><form action="Dispatcher" method="post" name="logout" id="logout"><input type="hidden" name="csrfPreventionFilter" id="csrfPreventionFilter" value="null"><input type="hidden" name="next.page" id="next.page" value="index.jsp"><input type="hidden" name="islogout" id="islogout" value="1"></form></td>
+                            </tr></tbody></table>
                     </td>
 
                 </tr>
@@ -219,55 +201,311 @@ class AnswerController extends Controller
 
 
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
 
 
-<table id=\'newspaper-b\'>
+
+<table id="newspaper-b">
 <thead>
 <tr>
-<td scope=\'col\' colspan=\'8\' align=\'center\' style=\'color:#364A63; font-size:12px; font-weight:bold\'> Hal hazırda qüvvədə olan cərimə balları</td>
+<td scope="col" colspan="8" align="center" style="color:#364A63; font-size:12px; font-weight:bold"> Hal hazırda qüvvədə olan cərimə balları</td>
 </tr>
 <tr>
-<td scope=\'col\' align=\'center\'>Soyadı</td>
-<td scope=\'col\' align=\'center\'>Adı</td>
-<td scope=\'col\' align=\'center\'>Ata adı</td>
-<td scope=\'col\' align=\'center\'>Avtomobil №</td>
-<td scope=\'col\' align=\'center\'> Protokol</td>
-<td scope=\'col\' align=\'center\'>Bal</td>
-<td scope=\'col\' align=\'center\'>Qərarın tarixi</td>
-<td scope=\'col\' align=\'center\'>Bitmə tarixi</td>
+<td scope="col" align="center">Soyadı</td>
+<td scope="col" align="center">Adı</td>
+<td scope="col" align="center">Ata adı</td>
+<td scope="col" align="center">Avtomobil №</td>
+<td scope="col" align="center"> Protokol</td>
+<td scope="col" align="center">Bal</td>
+<td scope="col" align="center">Qərarın tarixi</td>
+<td scope="col" align="center">Bitmə tarixi</td>
 </tr>
 </thead><tbody>
 <tr>
-<td align=\'left\'>NƏCƏFOV</td>
-<td align=\'left\'>MURAD</td>
-<td align=\'left\'>ƏNVƏR</td>
-<td align = \'center\'>90NZ477</td>
-<td align = \'center\'>MMX6859280</td>
-<td align = \'center\'>3</td>
-<td align=\'center\'>12.05.2018</td>
-<td align=\'center\'>22.05.2019</td>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">90UM067</td>
+<td align="center">IXP2192241</td>
+<td align="center">3</td>
+<td align="center">13.11.2018</td>
+<td align="center">23.11.2019</td>
 </tr>
 <tr>
-<td align=\'left\'>NƏCƏFOV</td>
-<td align=\'left\'>MURAD</td>
-<td align=\'left\'>ƏNVƏR</td>
-<td align = \'center\'>90NZ477</td>
-<td align = \'center\'>MMX6859281</td>
-<td align = \'center\'>4</td>
-<td align=\'center\'>12.05.2018</td>
-<td align=\'center\'>22.05.2019</td>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">90KK175</td>
+<td align="center">IXP1990463</td>
+<td align="center">3</td>
+<td align="center">20.08.2018</td>
+<td align="center">30.08.2019</td>
 </tr>
 <tr>
-<td colspan=\'5\' align=\'right\'><b>Cəmi:  </b></td>
-<td align=\'center\'><b>3</b></td>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">90KK175</td>
+<td align="center">IXP1916078</td>
+<td align="center">3</td>
+<td align="center">20.07.2018</td>
+<td align="center">30.07.2019</td>
+</tr>
+<tr>
+<td colspan="5" align="right"><b>Cəmi:  </b></td>
+<td align="center"><b>9</b></td>
 <td></td>
 <td></td>
+</tr>
+</tbody></table><br><br><table id="newspaper-b" width="100%">
+<thead>
+<tr>
+<td scope="col" colspan="7" align="center" style="color:#364A63; font-size:12px; font-weight:bold">  Hal hazırda ödənilməmiş cərimələr</td>
+</tr>
+<tr>
+<td scope="col" style="width:18%" align="center"> Soyadı</td>
+<td scope="col" style="width:18%" align="center"> Adı</td>
+<td scope="col" style="width:18%" align="center"> Ata adı</td>
+<td scope="col" style="width:16%" align="center"> Protokol</td>
+<td scope="col" style="width:10%" align="center"> Cərimə məbləği</td>
+<td scope="col" style="width:10%" align="center"> Qərarın tarixi</td>
+<td scope="col" style="width:10%" align="center"></td>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256294</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256295</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256296</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256297</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256298</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256299</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256300</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256301</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256302</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256303</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256304</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256305</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256306</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256307</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256308</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256309</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256310</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256311</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256312</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256313</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256314</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+<tr>
+<td align="left">NƏCƏFOV</td>
+<td align="left">ELMAR</td>
+<td align="left">MƏTLƏB</td>
+<td align="center">IXP2256315</td>
+<td align="center">43.2</td>
+<td align="center">13.12.2018</td>
+<td align="right"><a href="#" onclick="singleProtocolPayment(\'IXP2256294\')">Ödə</a></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td align="right" colspan="5"><b>Cəmi: </b></td>
+<td align="center"> 43.2 AZN </td>
+<td align="center">
+</td>
 </tr>
 </tbody></table>
 
-<div class="info">Hal hazırda Sizin ödənilməmiş cəriməniz yoxdur.</div>
 
 <script>
 //    var urll = (window.location !== window.parent.location)
@@ -290,9 +528,9 @@ class AnswerController extends Controller
 //    }
 </script>
 <form name="ViewForm" id="frmNtq" action="#" method="Post">
-    <input type="hidden" name="psn" value="AE523794">
-    <input type="hidden" name="bd" value="1998-06-24">
-    <input type="hidden" name="vd" value="2027-07-28">
+    <input type="hidden" name="psn" value="AB736972">
+    <input type="hidden" name="bd" value="1986-09-25">
+    <input type="hidden" name="vd" value="2022-05-29">
     <!--<input type="hidden" name="controllerName" value="WALogon">
     <input type="hidden" name="viewName" value="WALogonPage">
     <input type="hidden" name="commandName" value="LogonPage.GoToPaymentByAccNrPage">
@@ -359,8 +597,12 @@ class AnswerController extends Controller
 
         </script>
 
-    </body>
-</html>
+    
+
+</body></html>
+
+
+
         ';
         return $text;
     }

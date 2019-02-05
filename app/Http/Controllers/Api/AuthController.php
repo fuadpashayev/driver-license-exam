@@ -66,6 +66,7 @@ class AuthController extends Controller
           "id"=>$user->id,
           "name"=>$user->name,
           "email"=>$user->email,
+          "payment_type"=>$user->payment_type
       ];
       return response()->json($data,200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
   }
@@ -107,6 +108,7 @@ class AuthController extends Controller
           'id'=>$user->id,
           'name'=>$user->name,
           'email'=>$user->email,
+          "payment_type"=>$user->payment_type,
           'access_token' => $token,
           'token_type' => 'bearer',
           'expires_in' => auth('api')->factory()->getTTL() * 60
