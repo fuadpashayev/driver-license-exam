@@ -23,7 +23,11 @@
                                         @endif
                                     @endforeach
                                 </ul>
-                                <a href="#" class="btn btn-block btn-primary text-uppercase">Order Now</a>
+                                @if($plan->id!=1)
+                                    <a href="{{route('payment.order',['id'=>$plan->id])}}" class="btn btn-block btn-primary text-uppercase">Order Now</a>
+                                @else
+                                    <a href="#" class="btn btn-block btn-primary text-uppercase">Try Now</a>
+                                @endif
                             </div>
                         </div>
                     </div>

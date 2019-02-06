@@ -112,7 +112,7 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
   "id": 1,
   "name": "Admin",
   "email": "admin@app.com",
-  "payment_type": "freee",
+  "payment_type": "free",
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIU...",
   "token_type": "bearer",
   "expires_in": 3600
