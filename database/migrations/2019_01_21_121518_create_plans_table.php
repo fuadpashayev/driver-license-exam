@@ -19,7 +19,6 @@ class CreatePlansTable extends Migration
             $table->integer('price');
             $table->string('currency');
             $table->string('period');
-            $table->string('period_timestamp');
             $table->longText('information');
             $table->timestamps();
         });

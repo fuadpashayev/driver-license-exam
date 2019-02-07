@@ -93,6 +93,8 @@ function timestamp(){
 
 function checkPaymentTime($user_id){
     $user = User::find($user_id);
+    echo $user->payment_end_time.' - ';
+    echo timestamp();
     if($user->payment_end_time<timestamp()){
         $user->payment_type = "free";
         $user->payment_start_time = null;
