@@ -3,6 +3,11 @@
     <title>Login</title>
 @endsection
 @section('content')
+<style>
+    #spot-break{
+        display: none;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

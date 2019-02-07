@@ -68,6 +68,7 @@ class AuthController extends Controller
           "email"=>$user->email,
           "payment_type"=>$user->payment_type
       ];
+      checkPaymentTime($user->id);
       return response()->json($data,200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
   }
 
@@ -103,6 +104,7 @@ class AuthController extends Controller
   protected function respondWithToken($token)
   {
       $user = auth('api')->user();
+      checkPaymentTime($user->id);
       return response()->json([
           'status'=>'success',
           'id'=>$user->id,

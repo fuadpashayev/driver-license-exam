@@ -47,6 +47,7 @@ class PlanController extends Controller
             'price' => ['required','integer'],
             'currency' => ['required','string'],
             'period' => ['required','string'],
+            'period_days' => ['required','string'],
             'information' => ['required','array']
         ]);
 
@@ -55,6 +56,7 @@ class PlanController extends Controller
         $plan->price = $request->price;
         $plan->currency = $request->currency;
         $plan->period = $request->period;
+        $plan->period_timestamp = $request->period_days*24*3600;
         $plan->information = json_encode($request->information);
         $plan->save();
 
@@ -99,6 +101,7 @@ class PlanController extends Controller
             'price' => ['required','integer'],
             'currency' => ['required','string'],
             'period' => ['required','string'],
+            'period_days' => ['required','string'],
             'information' => ['required','array']
         ]);
 
@@ -107,6 +110,7 @@ class PlanController extends Controller
         $plan->price = $request->price;
         $plan->currency = $request->currency;
         $plan->period = $request->period;
+        $plan->period_timestamp = $request->period_days*24*3600;
         $plan->information = json_encode($request->information);
         $plan->save();
 

@@ -42,6 +42,13 @@
 
             <div class="input-box">
                 <span class="input-addon">
+                    <i class="material-icons">today</i>
+                </span>
+                <input type="number" name="period_days" required="" placeholder="Period Days">
+            </div>
+
+            <div class="input-box">
+                <span class="input-addon">
                     <i class="material-icons">list_alt</i>
                 </span>
                 <select name="information[]" class="selectpicker" multiple>

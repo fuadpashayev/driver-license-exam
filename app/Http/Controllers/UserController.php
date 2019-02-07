@@ -73,9 +73,10 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        if($user)
-            return view('user.show',['user'=>$user]);
-        else
+        if($user) {
+            checkPaymentTime($user->id);
+            return view('user.show', ['user' => $user]);
+        }else
             return redirect()->route('user.index');
     }
 

@@ -33,12 +33,25 @@ card.mount('#card-element');
 
 // Handle real-time validation errors from the card Element.
 card.addEventListener('change', function(event) {
+    let selectedType = $('.card-select div.active').attr("id")
+    console.log("selectedType: "+selectedType)
+    console.log("event.brand: "+event.brand)
+    if (selectedType !== event.brand) {
+        event.error = {
+            code: "incomplete_type",
+            message: "Your card type is incomplete.",
+            type: "card_type_error"
+        }
+        $('.ElementsApp,.InputElement').removeClass('is-complete').addClass('is-invalid')
+    }
+    $('.card-select').attr("writtenCard",event.brand)
     var displayError = document.getElementById('card-errors');
     if (event.error) {
         displayError.textContent = event.error.message;
     } else {
         displayError.textContent = '';
     }
+
 });
 
 // Handle form submission
@@ -47,6 +60,19 @@ form.addEventListener('submit', function(event) {
     event.preventDefault();
 
     stripe.createToken(card).then(function(result) {
+        console.log(result)
+        let selectedType = $('.card-select div.active').attr("id")
+        let writtenType = $('.card-select').attr("writtenCard")
+        if (selectedType !== writtenType) {
+            $('.ElementsApp,.InputElement').removeClass('is-complete').addClass('is-invalid')
+            result = {
+                error: {
+                    code: "incomplete_type",
+                    message: "Your card type is incomplete.",
+                    type: "card_type_error"
+                }
+            }
+        }
         if (result.error) {
             // Inform the user if there was an error
             var errorElement = document.getElementById('card-errors');
@@ -68,3 +94,8 @@ function stripeTokenHandler(token) {
 
     form.submit();
 }
+
+$(document).on("click",".card-select div",function () {
+    $('.card-select div.active').removeClass('active')
+    $(this).addClass('active')
+})

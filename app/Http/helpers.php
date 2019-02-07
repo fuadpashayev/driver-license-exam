@@ -86,3 +86,18 @@ function site_url(){
     $site_url = \App\Settings::find(1)->url;
     return $site_url;
 }
+
+function timestamp(){
+    return now()->timestamp;
+}
+
+function checkPaymentTime($user_id){
+    $user = User::find($user_id);
+    if($user->payment_end_time<timestamp()){
+        $user->payment_type = "free";
+        $user->payment_start_time = null;
+        $user->payment_end_time = null;
+        $user->save();
+    }
+}
+

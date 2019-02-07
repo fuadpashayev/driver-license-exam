@@ -14,9 +14,10 @@ Route::group(["middleware" => "web"], function () {
     Route::get('pricing','PricingController@index')->name('pricing.index');
 
     Route::get('order/{id}','PaymentController@order')->name('payment.order');
-    Route::get('payment/{id}','PaymentController@index')->name('payment.index');
     Route::post('payment/charge','PaymentController@charge')->name('payment.charge');
     Route::post('sign','PaymentController@sign')->name('payment.sign');
+    Route::post('register','PaymentController@sign')->name('payment.register');
+    Route::get('payment/{id}','PaymentController@index')->name('payment.index');
 });
 
 
