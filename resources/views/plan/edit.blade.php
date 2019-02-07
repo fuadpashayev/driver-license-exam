@@ -44,7 +44,7 @@
                 <span class="input-addon">
                     <i class="material-icons">today</i>
                 </span>
-                <input type="number" name="period_days" required="" placeholder="Period Days" value="{{$plan->period}}">
+                <input type="number" name="period_days" required="" placeholder="Period Days" value="{{sectodays($plan->period_timestamp)}}">
             </div>
 
             <div class="input-box">

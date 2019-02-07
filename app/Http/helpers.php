@@ -90,6 +90,9 @@ function site_url(){
 function timestamp(){
     return now()->timestamp;
 }
+function sectodays($num){
+    return $num/(24*3600);
+}
 
 function checkPaymentTime($user_id){
     $user = User::find($user_id);
