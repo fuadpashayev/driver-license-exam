@@ -26,6 +26,21 @@
                 <input name="url" required="" placeholder="URL" value="{{$settings->url}}">
             </div>
 
+            <div class="input-box">
+                <span class="input-addon">
+                    <i class="material-icons">aspect_ratio</i>
+                </span>
+                <div class="input-next">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="app_tariff_type" class="onoffswitch-checkbox" id="myonoffswitch" {{$settings->app_tariff_type?'checked="checked"':null}}>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="input-box submit">
                <button class="btn btn-success btn-iconed"><i class="material-icons">save</i> Save</button>

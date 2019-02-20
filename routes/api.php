@@ -40,8 +40,8 @@ Route::group(['middleware' => 'api', 'guard' => 'api'], function ($router) {
         Route::any('/statistics','Api\AnswerController@statistics')->name('api.statistics');
         Route::any('/statistics/session','Api\AnswerController@session_statistics')->name('api.statistics.session');
     });
+    Route::any('app_tariff_type','Api\AnswerController@app_tariff_type')->name('api.app_tariff_type');
 
-    Route::any('/test','Api\AnswerController@test')->name('test');
 
 
 });

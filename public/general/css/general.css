@@ -249,7 +249,7 @@ form.slide div input, form.slide div select {
     display: flex;
     justify-content: flex-end;
 }
-.input-box label {
+.input-box label:not(.onoffswitch-label) {
     position: absolute;
     top: 0;
     left: 38px;
@@ -259,7 +259,7 @@ form.slide div input, form.slide div select {
     transition: 330ms;
 }
 
-.input-box input:focus ~ label, .input-box input:valid ~ label, .input-box select:valid ~ label {
+.input-box input:focus ~ label:not(.onoffswitch-label), .input-box input:valid ~ label:not(.onoffswitch-label), .input-box select:valid ~ label:not(.onoffswitch-label) {
     top: -30px;
     left: -11px;
     color: #007bff;
@@ -279,7 +279,7 @@ form.slide div input, form.slide div select {
     border-bottom-left-radius: 2px;
 }
 
-.input-box.noEntry label {
+.input-box.noEntry label:not(.onoffswitch-label) {
     top: -25px !important;
     left: -5px;
     font-size: 11px;

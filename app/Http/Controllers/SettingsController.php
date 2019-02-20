@@ -83,10 +83,13 @@ class SettingsController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'url' => ['required', 'string', 'max:255'],
         ]);
+        //dd($request);
+        $app_tariff_type = $request->app_tariff_type=="on" && $request->app_tariff_type?1:0;
 
         $settings = Settings::findOrFail($id);
         $settings->title = $request->title;
         $settings->url = $request->url;
+        $settings->app_tariff_type = $app_tariff_type;
         $settings->save();
         return redirect()->route('setting.index');
     }

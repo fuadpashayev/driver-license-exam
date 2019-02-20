@@ -1146,6 +1146,42 @@ $play = '<i class="material-icons test-play">play_arrow</i>';
         </div>
     </div>
 
+
+
+
+
+    <div class="input-group spc-inp">
+        <div class="inp-header">Get app tariff type</div>
+        <button class="inp-header-right test">{!!$loading!!} {!!$play!!} Test</button>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">Method</div>
+            <input disabled value="POST "/>
+        </div>
+        <div class="inp-group no-filter">
+            <div class="input-group-header bdr">URL</div>
+            <input role="url" value="{{route("api.app_tariff_type")}}"/>
+        </div>
+        <pre class="result"></pre>
+        <div class="sample sample-success">
+            <div class="sample-header">Success Example</div>
+            <pre class="sample-result">
+{
+  "status": "success",
+  "app_tariff_type": 0
+}
+            </pre>
+        </div>
+        <div class="sample sample-error">
+            <div class="sample-header">Error Example</div>
+            <pre class="sample-result">
+{
+  "status": "error",
+  "results": []
+}
+                </pre>
+        </div>
+    </div>
+
 </div>
 @endsection
 
