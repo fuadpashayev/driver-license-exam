@@ -20,7 +20,7 @@
                 <tr id="{{$user->id}}">
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->roles[0]->display_name}}</td>
+                    <td>{{isset($user->roles[0])?$user->roles[0]->display_name:'User'}}</td>
                     <td>
                         <a href="{{route('user.show',$user->id)}}"><button class="btn btn-secondary view" role="view"><i class="material-icons" data-target="#deleteModal">remove_red_eye</i> View</button></a>
                         <a href="{{route('user.edit',$user->id)}}"><button class="btn btn-primary edit" role="edit"><i class="material-icons" data-target="#deleteModal">edit</i> Edit</button></a>
