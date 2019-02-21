@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -45,7 +46,7 @@ class AuthController extends Controller
     $user = User::create([
       'name' => $request->name,
       'email' => $request->email,
-      'password' => bcrypt($request->password)
+      'password' => Hash::make($request->password)
     ]);
 
     $user->attachRole("user");
