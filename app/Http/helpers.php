@@ -73,8 +73,11 @@ function routeCheck($check){
 }
 
 function isAdmin(){
-    $roles = Auth::user()->roles[0]->name;
-    return $roles=='admin';
+    return Auth::user()->hasRole('admin');
+}
+
+function isAdminOrEditor(){
+    return Auth::user()->hasRole('admin') || Auth::user()->hasRole('editor');
 }
 
 function settings(){

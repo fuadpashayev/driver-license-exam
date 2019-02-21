@@ -43,7 +43,7 @@
 
     <div id="wrapper">
         @auth
-            @if(!routeCheck('pricing'))
+            @if(!routeCheck('pricing') && isAdminOrEditor())
                 <div id="navigation">
                     <div class="nav-header">Primary</div>
                     <a href="{{route('home')}}"><div class="nav-menu {{routeCheck('home')?'active':null}}"><i class="material-icons">dashboard</i> Dashboard</div></a>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Plan;
+use App\PlanInformation;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,16 +32,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $users_count = DB::table("users")->count();
-        $categories_count = DB::table("categories")->count();
-        $questions_count = DB::table("questions")->where('parent_id',null)->count();
-        $sub_questions_count = DB::table("questions")->whereNotNull('parent_id')->count();
+        $user = Auth::user();
+        if($user->hasRole('admin') || $user->hasRole('editor')){
+            $users = User::all();
+            $users_count = DB::table("users")->count();
+            $categories_count = DB::table("categories")->count();
+            $questions_count = DB::table("questions")->where('parent_id',null)->count();
+            $sub_questions_count = DB::table("questions")->whereNotNull('parent_id')->count();
 
-        $audios_count = count(Storage::allFiles('audio'));
-        $images_count = count(Storage::allFiles('image'));
+            $audios_count = count(Storage::allFiles('audio'));
+            $images_count = count(Storage::allFiles('image'));
 
-        $counts = ['user'=>$users_count,'category'=>$categories_count,'question'=>$questions_count,'sub_question'=>$sub_questions_count,'audio'=>$audios_count,'image'=>$images_count];
-        return view('home',['users'=>$users,'counts'=>$counts]);
+            $counts = ['user'=>$users_count,'category'=>$categories_count,'question'=>$questions_count,'sub_question'=>$sub_questions_count,'audio'=>$audios_count,'image'=>$images_count];
+            return view('home',['users'=>$users,'counts'=>$counts]);
+        }else{
+            $plans = Plan::all();
+            $infos = PlanInformation::all();
+            return view('pricing.index',['plans'=>$plans,'infos'=>$infos]);
+        }
     }
 }

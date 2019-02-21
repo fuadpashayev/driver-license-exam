@@ -48,6 +48,8 @@ class AuthController extends Controller
       'password' => bcrypt($request->password)
     ]);
 
+    $user->attachRole("user");
+
     return $this->login($request);
   }
 

@@ -5,7 +5,7 @@
 
 Auth::routes();
 
-Route::group(["middleware" => "web"], function () {
+
     Route::get('docs','DocsController@auth');
     Route::get('docs/auth','DocsController@auth')->name('docs.auth');
     Route::get('docs/category','DocsController@category')->name('docs.category');
@@ -15,14 +15,12 @@ Route::group(["middleware" => "web"], function () {
 
     Route::get('order/{id}','PaymentController@order')->name('payment.order');
     Route::post('payment/charge','PaymentController@charge')->name('payment.charge');
-    Route::post('sign','PaymentController@sign')->name('payment.sign');
-    Route::post('register','PaymentController@sign')->name('payment.register');
     Route::get('payment/{id}','PaymentController@index')->name('payment.index');
-});
 
 
 
-Route::group(["middleware" => "login"], function () {
+
+
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('question','QuestionController');
@@ -34,6 +32,6 @@ Route::group(["middleware" => "login"], function () {
     Route::get('question/create/{id}','QuestionController@create')->name('question.createInCategory');
 
 
-});
+
 
 
