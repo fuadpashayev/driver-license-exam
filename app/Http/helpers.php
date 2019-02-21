@@ -18,13 +18,15 @@ function previousRoute(){
     $id='';
     $previous = null;
     foreach(Route::current()->parameters() as $router=>$id_param) { $id = $id_param; }
-    switch ($route){
-        case ($id || $create) && 'user':
-        case ($id || $create) && 'setting':
-        case ($id || $create) && 'category':
-        case ($id || $create) && 'question':
-            $previous = route($route.'.index');
-        break;
+    if(!empty($route)){
+        switch ($route){
+            case ($id || $create) && 'user':
+            case ($id || $create) && 'setting':
+            case ($id || $create) && 'category':
+            case ($id || $create) && 'question':
+                $previous = route($route.'.index');
+            break;
+        }
     }
    return $previous;
 }

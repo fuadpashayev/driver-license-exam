@@ -1,7 +1,7 @@
 <?php
 
 
-
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
@@ -23,6 +23,7 @@ Auth::routes();
 
 
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index');
     Route::resource('question','QuestionController');
     Route::resource('category','CategoryController');
     Route::resource('user','UserController');
