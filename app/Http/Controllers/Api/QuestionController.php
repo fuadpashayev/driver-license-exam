@@ -129,6 +129,7 @@ class QuestionController extends Controller
             $returnCategories = [];
             foreach ($categories as $category) {
                 $category->image_url = site_url() . $category->image_url;
+                $category->questions_count = Question::where(["category_id" => $category->id,"parent_id" => null])->count();
                 $returnCategories[] = $category;
             }
             if (count($returnCategories))
