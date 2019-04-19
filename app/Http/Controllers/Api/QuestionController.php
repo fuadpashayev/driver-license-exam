@@ -19,6 +19,8 @@ class QuestionController extends Controller
 
         if(count($questions)){
             $status = "success";
+            $message = "Questions fetched successfully";
+            $status_code = 200;
             if($type=='with_sub_questions'){
                 $returnQuestions = [];
                 foreach ($questions as $question){
@@ -36,32 +38,46 @@ class QuestionController extends Controller
             }else $returnQuestions = $questions;
         }else{
             $status = "error";
+            $message = "No question found";
+            $status_code = 404;
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'questions'=>$returnQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
 
     public static function show($id,$self=false)
     {
         $question = Question::where("parent_id",null)->find($id);
-        $question->image_url = site_url().$question->image_url;
-        $question->audio_url = site_url().$question->audio_url;
-        if($question){
-            $status = "success";
-            $sub_questions = Question::where("parent_id",$question->id)->get();
+        if(@$question->image_url){
+            $question->image_url = site_url().$question->image_url;
+            $question->audio_url = site_url().$question->audio_url;
             $returnSubQuestions = [];
-            foreach ($sub_questions as $sub_question){
-                $sub_question->audio_url = site_url().$sub_question->audio_url;
-                $returnSubQuestions[] = $sub_question;
+            if($question){
+                $status = "success";
+                $message = "Question fetched successfully";
+                $status_code = 200;
+                $sub_questions = Question::where("parent_id",$question->id)->get();
+                foreach ($sub_questions as $sub_question){
+                    $sub_question->audio_url = site_url().$sub_question->audio_url;
+                    $returnSubQuestions[] = $sub_question;
+                }
+                $question->sub_questions = $returnSubQuestions;
+            }else{
+                $status = "error";
+                $message = "Question not found";
+                $status_code = 404;
+                $question = null;
             }
-            $question->sub_questions = $returnSubQuestions;
         }else{
             $status = "error";
+            $message = "Question not found";
+            $status_code = 404;
             $question = null;
         }
+
         if(!$self)
-            return response()->json(['status'=>$status,'question'=>$question],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'message'=>$message,'question'=>$question],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
         else
             return $question;
     }
@@ -69,9 +85,11 @@ class QuestionController extends Controller
     public function random_with_sub_questions(){
         $questions = Question::where("parent_id",null)->inRandomOrder()->limit(25)->get();
 
+        $returnQuestions = [];
         if(count($questions)){
             $status = "success";
-            $returnQuestions = [];
+            $message = "Questions fetched successfully";
+            $status_code = 200;
             foreach ($questions as $question){
                 $question->image_url = site_url().$question->image_url;
                 $question->audio_url = site_url().$question->audio_url;
@@ -86,9 +104,11 @@ class QuestionController extends Controller
             }
         }else{
             $status = "error";
+            $message = "No question found";
+            $status_code = 404;
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'questions'=>$returnQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -100,9 +120,11 @@ class QuestionController extends Controller
             $questions = Question::where('category_id',$id);
             $questions = $questions->limit(25)->where("parent_id",null);
             $questions = $questions->get();
+            $returnQuestions = [];
             if(count($questions)){
                 $status = "success";
-                $returnQuestions = [];
+                $message = "Questions fetched successfully";
+                $status_code = 200;
                 foreach ($questions as $index => $question){
                     $question->image_url = site_url().$question->image_url;
                     $question->audio_url = site_url().$question->audio_url;
@@ -120,9 +142,11 @@ class QuestionController extends Controller
 
             }else{
                 $status = "error";
+                $message = "No question found";
+                $status_code = 404;
                 $questions = null;
             }
-            return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'message'=>$message,'questions'=>$returnQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
         }else {
             $categories = Category::all();
@@ -132,13 +156,17 @@ class QuestionController extends Controller
                 $category->questions_count = Question::where(["category_id" => $category->id,"parent_id" => null])->count();
                 $returnCategories[] = $category;
             }
-            if (count($returnCategories))
+            if (count($returnCategories)){
                 $status = "success";
-            else {
+                $message = "Categories fetched successfully";
+                $status_code = 200;
+            }else {
                 $status = "error";
+                $message = "No category found";
+                $status_code = 404;
                 $categories = null;
             }
-            return response()->json(['status' => $status, 'categories' => $returnCategories], 200, ["Accept" => "application/json; charset=utf-8", "Content-type" => "application/json; charset=utf-8"], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'message'=>$message,'categories'=>$returnCategories], $status_code, ["Accept" => "application/json; charset=utf-8", "Content-type" => "application/json; charset=utf-8"], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }
     }
 
@@ -148,9 +176,11 @@ class QuestionController extends Controller
         $questions = Question::where('category_id',$id);
         $questions = $questions->limit(25)->where("parent_id",null);
         $questions = $questions->get();
+        $returnQuestions = [];
         if(count($questions)){
             $status = "success";
-            $returnQuestions = [];
+            $message = "Questions fetched successfully";
+            $status_code = 200;
             foreach ($questions as $index => $question){
                 $question->image_url = site_url().$question->image_url;
                 $question->audio_url = site_url().$question->audio_url;
@@ -168,9 +198,11 @@ class QuestionController extends Controller
 
         }else{
             $status = "error";
+            $message = "No question found";
+            $status_code = 404;
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'questions'=>$returnQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -179,9 +211,11 @@ class QuestionController extends Controller
         $categories = preg_replace('/[\[\]]/i','',$categories);
         $categories = explode(',',$categories);
         $questions = Question::whereIn('category_id',$categories)->where("parent_id",null)->inRandomOrder()->limit(25)->get();
+        $returnQuestions = [];
         if(count($questions)){
             $status = "success";
-            $returnQuestions = [];
+            $message = "Questions fetched successfully";
+            $status_code = 200;
             foreach ($questions as $question){
                 $question->image_url = site_url().$question->image_url;
                 $question->audio_url = site_url().$question->audio_url;
@@ -196,9 +230,11 @@ class QuestionController extends Controller
             }
         }else{
             $status = "error";
+            $message = "No question found";
+            $status_code = 404;
             $questions = null;
         }
-        return response()->json(['status'=>$status,'questions'=>$returnQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'questions'=>$returnQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 
     }
 
@@ -210,14 +246,18 @@ class QuestionController extends Controller
             $returnSubQuestions[] = $sub_question;
         }
 
-        if(count($returnSubQuestions))
+        if(count($returnSubQuestions)) {
             $status = "success";
-        else{
+            $message = "Sub questions fetched successfully";
+            $status_code = 200;
+        }else{
             $status = "error";
+            $message = "No sub question found";
+            $status_code = 404;
             $questions = null;
         }
         if(!$self)
-            return response()->json(['status'=>$status,'sub_questions'=>$returnSubQuestions],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            return response()->json(['status'=>$status,'message'=>$message,'sub_questions'=>$returnSubQuestions],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
         else
             return $sub_questions;
 

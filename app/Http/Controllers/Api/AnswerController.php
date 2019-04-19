@@ -28,27 +28,36 @@ class AnswerController extends Controller
             $check = $check->get()->count();
             if($check==0) {
                 $question = Question::find($question_id);
-                //dd($question_id);
-                $real_answer = $question->answer;
-                $session = new Session;
-                $session->session_id = $session_id;
-                $session->question_id = $question_id;
-                $session->user_id = $user_id;
-                $session->device_id = $device_id;
-                $session->answer = $answer;
-                $session->real_answer = $real_answer;
-                $session->question_list = $question_list;
-                $session->save();
-                $return[$question_id] = $answer == $real_answer;
-                $status = 'success';
-                $message = 'Answers are sended to database successfully';
+                //dd($question->answer);
+                //return $real_answer;
+                @$real_answer = $question->answer;
+                if($real_answer){
+                    $session = new Session;
+                    $session->session_id = $session_id;
+                    $session->question_id = $question_id;
+                    $session->user_id = $user_id;
+                    $session->device_id = $device_id;
+                    $session->answer = $answer;
+                    $session->real_answer = $real_answer;
+                    $session->question_list = $question_list;
+                    //$session->save();
+                    $return[$question_id] = $answer == $real_answer;
+                    $status = 'success';
+                    $status_code = 200;
+                    $message = 'Answers are sended to database successfully';
+                }else{
+                    $status = 'error';
+                    $status_code = 404;
+                    $message = 'Some questions do not exist on database';
+                }
             }else{
                 $status = 'error';
+                $status_code = 404;
                 $message = 'These answers exist on database';
             }
         }
 
-        return response()->json(['status'=>$status,'message'=>$message,'results'=>$return],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+        return response()->json(['status'=>$status,'message'=>$message,'results'=>$return],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function statistics(Request $request){
@@ -69,11 +78,16 @@ class AnswerController extends Controller
             }
             $return[$session["session_id"]] = $returnSession;
         }
-        if(count($return))
+        if(count($return)) {
             $status = 'successful';
-        else
+            $message = 'Statistics fetched successfully';
+            $status_code = 200;
+        }else {
             $status = 'error';
-        return response()->json(['status'=>$status,'results'=>$return],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            $message = 'No statistics data found';
+            $status_code = 404;
+        }
+        return response()->json(['status'=>$status,'message'=>$message,'results'=>$return],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function session_statistics(Request $request){
@@ -97,29 +111,39 @@ class AnswerController extends Controller
             foreach ($question_list as $parent_question) {
 
                 $question = Question::find($parent_question);
-                $question->image_url = site_url().$question->image_url;
-                $question->audio_url = site_url().$question->audio_url;
-                $fetch_sub_questions = Question::where("parent_id", $question->id)->get();
-                $sub_questions = [];
-                foreach ($fetch_sub_questions as $fetch_sub_question) {
-                    @$answer = $answers[$fetch_sub_question->id];
-                    $fetch_sub_question->user_answer = $answer;
-                    $fetch_sub_question->audio_url = site_url().$fetch_sub_question->audio_url;
-                    $sub_questions[] = $fetch_sub_question;
+                if(@$question->image_url){
+                    $question->image_url = site_url().$question->image_url;
+                    $question->audio_url = site_url().$question->audio_url;
+                    $fetch_sub_questions = Question::where("parent_id", $question->id)->get();
+                    $sub_questions = [];
+                    foreach ($fetch_sub_questions as $fetch_sub_question) {
+                        @$answer = $answers[$fetch_sub_question->id];
+                        $fetch_sub_question->user_answer = $answer;
+                        $fetch_sub_question->audio_url = site_url().$fetch_sub_question->audio_url;
+                        $sub_questions[] = $fetch_sub_question;
+                    }
+                    $question->sub_questions = $sub_questions;
+                    $return[] = $question;
+                }else{
+                    $return = [];
                 }
-                $question->sub_questions = $sub_questions;
-                $return[] = $question;
+
 
             }
         }else{
             $return = [];
         }
 
-        if(count($return))
+        if(count($return)) {
             $status = 'successful';
-        else
+            $message = 'Statistics data fetched successfully';
+            $status_code = 200;
+        }else {
             $status = 'error';
-        return response()->json(['status'=>$status,'results'=>$return],200,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            $message = 'No statistics data found';
+            $status_code = 404;
+        }
+        return response()->json(['status'=>$status,'message'=>$message,'results'=>$return],$status_code,["Accept"=>"application/json; charset=utf-8","Content-type"=>"application/json; charset=utf-8"],JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
     }
 
     public function app_tariff_type(){
