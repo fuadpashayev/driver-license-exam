@@ -94,6 +94,7 @@ class AnswerController extends Controller
         $user_id = $request->user_id;
         $device_id = $request->device_id;
         $session_id = $request->session_id;
+        dd($user_id+" - "+$device_id);
         $return = [];
         $sessions = Session::where("session_id",$session_id);
         if($user_id)
