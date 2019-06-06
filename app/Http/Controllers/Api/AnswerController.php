@@ -97,9 +97,9 @@ class AnswerController extends Controller
         $return = [];
         $sessions = Session::where("session_id",$session_id);
         if($user_id)
-            $sessions->where("user_id",$user_id);
+            $sessions = $sessions->where("user_id",$user_id);
         else
-            $sessions->where("device_id",$device_id);
+            $sessions = $sessions->where("device_id",$device_id);
         $sessions = $sessions->get();
         $answers = [];
         foreach ($sessions as $session){
