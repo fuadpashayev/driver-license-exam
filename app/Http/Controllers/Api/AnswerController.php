@@ -94,7 +94,6 @@ class AnswerController extends Controller
         $user_id = $request->user_id;
         $device_id = $request->device_id;
         $session_id = $request->session_id;
-        dd($user_id);
         $return = [];
         $sessions = Session::where("session_id",$session_id);
         if($user_id)
@@ -102,6 +101,7 @@ class AnswerController extends Controller
         else
             $sessions = $sessions->where("device_id",$device_id);
         $sessions = $sessions->get();
+        dd($sessions);exit;
         $answers = [];
         foreach ($sessions as $session){
             $question_id = $session["question_id"];
