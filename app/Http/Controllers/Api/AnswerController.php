@@ -28,7 +28,7 @@ class AnswerController extends Controller
             $check = $check->get()->count();
             if($check==0) {
                 $question = Question::find($question_id);
-                dd($question);
+                dd($question->answer);
                 //return $real_answer;
                 @$real_answer = $question->answer;
                 if($real_answer){
