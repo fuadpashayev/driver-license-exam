@@ -31,7 +31,7 @@ class AnswerController extends Controller
                 dd($question->answer);
                 //return $real_answer;
                 @$real_answer = $question->answer;
-                if($real_answer){
+                if($real_answer!=null && !empty($real_answer) && $real_answer!=""){
                     $session = new Session;
                     $session->session_id = $session_id;
                     $session->question_id = $question_id;
@@ -40,7 +40,7 @@ class AnswerController extends Controller
                     $session->answer = $answer;
                     $session->real_answer = $real_answer;
                     $session->question_list = $question_list;
-                    //$session->save();
+                    $session->save();
                     $return[$question_id] = $answer == $real_answer;
                     $status = 'success';
                     $status_code = 200;
