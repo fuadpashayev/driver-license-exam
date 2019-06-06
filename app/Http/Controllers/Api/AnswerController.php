@@ -28,10 +28,10 @@ class AnswerController extends Controller
             $check = $check->get()->count();
             if($check==0) {
                 $question = Question::find($question_id);
-                dd($question->answer);
+                //dd($question->answer);
                 //return $real_answer;
                 @$real_answer = $question->answer;
-                if($real_answer!=null && !empty($real_answer) && $real_answer!=""){
+                if($real_answer!=null){
                     $session = new Session;
                     $session->session_id = $session_id;
                     $session->question_id = $question_id;
